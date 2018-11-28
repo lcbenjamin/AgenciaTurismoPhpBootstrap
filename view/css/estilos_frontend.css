@@ -1,0 +1,25 @@
+#caixa-detalhe-tit-pacote{
+    padding-top: 10px;
+    height: 150px;
+    width: 100%;
+}
+
+#titulo-detalhe-pacote{
+    width: 100%;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+#diarias-detalhe-pacote{
+    width: 100%;
+    margin-top: 5px;
+    margin-left: 25px;
+    margin-bottom: 5px;
+}
+
+#hr-detalhe-pacote {
+    background-color: darkblue;
+    height: 3px;
+    width: 100%;
+  }
