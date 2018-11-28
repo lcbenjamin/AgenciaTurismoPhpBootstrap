@@ -33,11 +33,11 @@ O projeto nesta versão 1.0 foi desenvolvido com o seguinte ambiente:
     
 ## Tecnologias aplicadas
     
-Bootstrap 4.1.3
-Bootstrap DataPicker 
-Font Awesome 4.7.0
-Jquery 3.3.1
-Popper.js
+Bootstrap 4.1.3  
+Bootstrap DataPicker   
+Font Awesome 4.7.0  
+Jquery 3.3.1  
+Popper.js  
    
 ## Requisitos
 
