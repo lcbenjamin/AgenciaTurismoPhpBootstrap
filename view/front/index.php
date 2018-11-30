@@ -81,11 +81,9 @@
                         <a class="nav-link" href="./index.php?p=home">Home</a>
                     </li>
                     <li class="nav-item dropdown mr-4">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navDrop">Pacotes</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="./index.php?p=pctNacionais">Nacionais</a>
-                            <a class="dropdown-item" href="./index.php?p=pctInternacionais">Internacionais</a>
-                        </div>
+                    <li class="nav-item mr-4">
+                        <a class="nav-link" href="./index.php?p=pacotes">Pacotes</a>
+                    </li>
                     </li>
                     <li class="nav-item mr-4">
                         <a class="nav-link" href="./index.php?p=quemSomos">Quem somos</a>
@@ -171,7 +169,7 @@
             if($paginaSelecionada == "cadUsr"){require_once 'cadastrar.html';}
             if($paginaSelecionada == "contato"){require_once 'contato.html';}
             if($paginaSelecionada == "carrinho"){require_once 'carrinho.php';}
-            if($paginaSelecionada == "pctNacionais"){require_once 'pacotesNacionais.html';}
+            if($paginaSelecionada == "pacotes"){require_once 'pacotes.php';}
             if($paginaSelecionada == "detalhePacote"){require_once 'detalhePacote.php';}
             if($paginaSelecionada == "pctInternacionais"){require_once 'pacotesInternacionais.html';}
             if($paginaSelecionada == "quemSomos"){require_once 'quemSomos.html';}
@@ -220,11 +218,10 @@
                         Bubu viagens e turismo Ltda.
                     </h5>
                 <div class="row mt-2">
-                    <div class="col-6">
+                    <div class="col-5">
                         <ul class="list-unstyled">
                             <li><a class="text-muted" href="./index.php?p=home">Pricipal</a></li>
-                            <li><a class="text-muted" href="./index.php?p=pctNacionais">Pacotes Nacionais</a></li>
-                            <li><a class="text-muted" href="./index.php?p=pctInternacionais">Pacotes Internacionais</a></li>
+                            <li><a class="text-muted" href="./index.php?p=pacotes">Pacotes</a></li>
                             <li><a class="text-muted" href="./index.php?p=quemSomos">Quem somos</a></li>
                         </ul>
                     </div>
