@@ -49,7 +49,7 @@ Popper.js
     1.5 As informações de acesso devem ser mantidas em Sessões  
     1.6 Deve existir a opção de desconectar (Logout).  
     
-2. O cadastro do usuário deve
+2. O cadastro do usuário deve  
     2.1 Solicitar: Nome completo, Endereço completo, Telefone, E-mail, RG, CPF, Data de nascimento, Foto e Perfil  
     2.2 Os dados devem ser validados  
     2.3 Armazenar em banco de dados.  
