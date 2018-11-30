@@ -3,6 +3,7 @@
     /** Includes e conexões com o banco */    
     require_once '../../config.php';
     require_once DBAPI;
+    session_start();
     
     /** Inclusão dos controllers */
     require_once('../../controller/beans/loginBean.php');
