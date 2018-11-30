@@ -2,41 +2,75 @@
 require_once('../../config.php');
 require_once(DBAPI);
 
-$pacotePadrao = null;
-$usuarioSolicitante = null;
-$pacotePersonalizado = null;
-$pacotesCarrinho  = null;
 
-/** Carrega o pacote selecionado */
-if(isset($_GET['id'])){
-    $idPacote = $_GET['id'];
-    global $pacotePadrao;
-    $pacotePadrao = carregaDadosPacoteFull($idPacote);
+//Cria o carrinho se não existir
+if (!isset($_SESSION['carrinho'])) {
+   $_SESSION['carrinho'] = array();
 }
 
-/** Carrega usuário solicitante */
-if(isset($_SESSION['logado'])){
-    global $usuarioSolicitante;
-    $usuarioSolicitante = $_SESSION['logado'];        
+$carrinho = $_SESSION['carrinho'];
+
+//Verifica se as variáveis vieram via POST, se for adiciona um novo item ao carrinho
+if (isset($_POST['pedidoPersonalizado'])) {
+
+    /** Se carrinho estiver vazio, adiciona item */
+    if(empty($carrinho)){
+        $carrinho[] = trataSolicitacaoPedidoPersonalizado();
+        echo "O pacote esta vazio";
+    } 
+    /** Se carrinho não estiver vazio, verifica se item já esta incluido */
+    else {
+
+        /** Verifica se o item é novo */
+        $itemNovo = true;
+        foreach($carrinho as $item){
+            if($item['codPacote'] == $_POST['pedidoPersonalizado']['codPacote']){
+                $itemNovo = false;
+            }
+        }
+
+        /** se for novo adiciona no carrinho */
+        if($itemNovo){
+            $carrinho[] = trataSolicitacaoPedidoPersonalizado();
+            echo "Adiciona novo pacote";
+
+        }
+
+    }
 }
 
-/** Carrega usuário solicitante */
-if(isset($_POST['pedidoPersonalizado'])){
-    global $pacotePersonalizado;
-    $pacotePersonalizado = $_POST['pedidoPersonalizado'];        
-}
+//Salva na sessão
+$_SESSION['carrinho'] = $carrinho;
 
+echo " Carrinho: ";
+var_dump($_SESSION['carrinho']);
+echo " Pedido Personalizado: ";
+var_dump($_POST['pedidoPersonalizado']);
 
-echo nl2br("\n"."   INICIO PACOTE PADRAO:   ");
-var_dump($pacotePadrao);
-echo nl2br("\n"."   INICIO USUARIO SOLICITANTE:   ");
-var_dump($usuarioSolicitante);
-echo nl2br("\n"."    INICIO PACOTE PERSONALIZADO :   ");
-var_dump($pacotePersonalizado);
+function trataSolicitacaoPedidoPersonalizado(){
 
-function validaSolicitacaoPedidoPersonalizado(){
-
-    echo "USUARIO: " .$usuarioSolicitante['codigoUsuario'];
+    /** Inicia as variaveis com valor nulo */
+    $pacotePadrao = null;
+    $usuarioSolicitante = null;
+    $pacotePersonalizado = null;
+    $pacotesCarrinho  = null;
+    
+    /** Carrega o pacote selecionado */
+    if(isset($_POST['pedidoPersonalizado'])){
+        $codPacote = $_POST['pedidoPersonalizado']['codPacote'];
+        $pacotePadrao = carregaDadosPacoteFull($codPacote);
+    }
+    
+    /** Carrega usuário solicitante */
+    if(isset($_SESSION['logado'])){
+        $usuarioSolicitante = $_SESSION['logado'];        
+    }
+    
+    /** Carrega usuário solicitante */
+    if(isset($_POST['pedidoPersonalizado'])){
+        $pacotePersonalizado = $_POST['pedidoPersonalizado'];        
+    }
+    
     
     if(isset($_POST['pedidoPersonalizado'])){
 
@@ -44,37 +78,37 @@ function validaSolicitacaoPedidoPersonalizado(){
         $codigoUsuario = $usuarioSolicitante['codigoUsuario'];
         
         /** Define codigo Pacote */
-        $codPacote = $pacotePadrao['pacote']['codPacote'];
+        $codPacote = $pacotePersonalizado['codPacote'];
        
         /** Define data Ida do viagem */
-        $dataInicio = validaDataInicio();
+        $dataInicio = validaDataInicio($pacotePersonalizado,$pacotePadrao);
         
         /** Define data Ida do viagem */
-        $dataFim = validaDataFim();
+        $dataFim = validaDataFim($pacotePersonalizado,$pacotePadrao);
 
         /** Define Traslado */        
-        $traslado = validaTraslado();
+        $traslado = validaTraslado($pacotePersonalizado);
 
         /** Define Traslado */        
-        $valorTraslado = validaValorTraslado();
+        $valorTraslado = validaValorTraslado($pacotePersonalizado,$pacotePadrao);
 
         /** Define Parcelamento */        
-        $parcelamento = validaParcelamento();
+        $parcelamento = validaParcelamento($pacotePersonalizado,$pacotePadrao);
 
         /** Define Valor Total */        
-        $valor = validaValor();
+        $valor = validaValor($pacotePersonalizado,$pacotePadrao);
 
         /** Define Hospedagem */        
-        $hospedagem = validaHospedagem();
+        $hospedagem = validaHospedagem($pacotePersonalizado);
 
         /** Define valor hospedagem */        
-        $valorHospedagem = validaValorHospedagem();
+        $valorHospedagem = validaValorHospedagem($pacotePersonalizado,$pacotePadrao);
 
         /** Define Aereo */        
-        $aereo = validaAereo();
+        $aereo = validaAereo($pacotePersonalizado);
 
         /** Define valor Aereo */        
-        $valorAereo = validaValorAereo();
+        $valorAereo = validaValorAereo($pacotePersonalizado,$pacotePadrao);
 
         /**Monta Pedido */
         $pedidoPersonalizado = array(
@@ -93,19 +127,19 @@ function validaSolicitacaoPedidoPersonalizado(){
         );
 
         /** Define variavel global para uso em tela */
-        $pacotesCarrinho = $pedidoPersonalizado;
+        return $pacotesCarrinho = $pedidoPersonalizado;
     }
 }
 
 /****************
  *  VALIDAÇÕES  *
  ****************/
-function validaDataInicio(){
+function validaDataInicio($pacotePersonalizado,$pacotePadrao){
 
     $dataInicio = null;
 
     /** Verifica qual data usar */
-    if(isset($pacotePersonalizado['dataInicio'])){
+    if(!empty($pacotePersonalizado['dataInicio'])){
         $dataInicio = $pacotePersonalizado['dataInicio'];
     } else{
         $dataInicio = $pacotePadrao['pacote']['dataInicio'];
@@ -114,12 +148,12 @@ function validaDataInicio(){
     return $dataInicio;
 }
 
-function validaDataFim(){
+function validaDataFim($pacotePersonalizado,$pacotePadrao){
 
     $dataFim = null;
 
     /** Verifica qual data usar */
-    if(isset($pacotePersonalizado['dataFim'])){
+    if(!empty($pacotePersonalizado['dataFim'])){
         $dataFim = $pacotePersonalizado['dataFim'];
     } else{
         $dataFim = $pacotePadrao['pacote']['dataFim'];
@@ -128,11 +162,11 @@ function validaDataFim(){
     return $dataFim; 
 }
 
-function validaTraslado(){
+function validaTraslado($pacotePersonalizado){
 
     $traslado = null;
 
-    if(isset($pacotePersonalizado['traslado'])){
+    if(!empty($pacotePersonalizado['traslado'])){
         $traslado = "true";
     } else{
         $traslado = "false";
@@ -141,11 +175,11 @@ function validaTraslado(){
     return $traslado; 
 }
 
-function validaValorTraslado(){
+function validaValorTraslado($pacotePersonalizado,$pacotePadrao){
 
     $valorTraslado = null;
 
-    if(validaTraslado()){
+    if(validaTraslado($pacotePersonalizado)){
         $valorTraslado = $pacotePadrao['pacote']['valorTraslado'];
     } else{
         $valorTraslado = floatval(0) ;
@@ -154,11 +188,11 @@ function validaValorTraslado(){
     return $valorTraslado; 
 }
 
-function validaParcelamento(){
+function validaParcelamento($pacotePersonalizado,$pacotePadrao){
 
     $parcelamento = null;
 
-    if(isset($pacotePadrao['parcela'])){
+    if($pacotePadrao['parcela'] == true){
         $parcelamento = $pacotePersonalizado['quantidadeParcelas'];
     } else{
         $parcelamento = "0";
@@ -167,32 +201,32 @@ function validaParcelamento(){
     return $parcelamento; 
 }
 
-function validaValor(){
+function validaValor($pacotePersonalizado,$pacotePadrao){
 
     $valorTotal = null;
 
     /** Calcula diarias */
-    $diarias = caculaDiarias(validaDataInicio(),validaDataFim());
+    $diarias = caculaDiarias(validaDataInicio($pacotePersonalizado,$pacotePadrao),validaDataFim($pacotePersonalizado,$pacotePadrao));
 
     /** Valor minimo do pacote sem os serviços opcionais */
     $valorBase =        floatval($pacotePadrao['pacote']['valorBase']) ;
 
     /** Valor da diaria de hospedagem multiplicado pelas diarias do pacote */
-    if(isset($pacotePersonalizado['hospedagem'])){
+    if(!empty($pacotePersonalizado['hospedagem'])){
         $valorHospedagem =  floatval($pacotePadrao['pacote']['valorHospedagem']) * $diarias  ;    
     } else {
         $valorHospedagem =  floatval(0) ;
     }
     
     /** Valor valor do traslado Hotel / Aeroporto */
-    if(isset($pacotePersonalizado['hospedagem'])){
+    if(!empty($pacotePersonalizado['hospedagem'])){
         $valorTraslado =    floatval($pacotePadrao['pacote']['valorTraslado']);
     } else {
         $valorHospedagem =  floatval(0) ;
     }
 
     /** Valor valor do traslado Hotel / Aeroporto */
-    if(isset($pacotePersonalizado['aereo'])){
+    if(!empty($pacotePersonalizado['aereo'])){
         $valorAereo =    floatval($pacotePadrao['pacote']['valorAereo']);
     } else {
         $valorAereo =  floatval(0) ;
@@ -203,11 +237,11 @@ function validaValor(){
     return $valorTotal;    
 }
 
-function validaHospedagem(){
+function validaHospedagem($pacotePersonalizado){
 
     $hospedagem = null;
 
-    if(isset($pacotePersonalizado['hospedagem'])){
+    if(!empty($pacotePersonalizado['hospedagem'])){
         $hospedagem = "true";
     } else{
         $hospedagem = "false";
@@ -216,11 +250,11 @@ function validaHospedagem(){
     return $hospedagem; 
 }
 
-function validaValorHospedagem(){
+function validaValorHospedagem($pacotePersonalizado,$pacotePadrao){
 
     $valorHospedagem = null;
 
-    if(validaHospedagem()){
+    if(validaHospedagem($pacotePersonalizado)){
         $valorHospedagem = $pacotePadrao['pacote']['valorHospedagem'];
     } else{
         $valorHospedagem = floatval(0) ;
@@ -229,11 +263,11 @@ function validaValorHospedagem(){
     return $valorHospedagem; 
 }
 
-function validaAereo(){
+function validaAereo($pacotePersonalizado){
 
     $aereo = null;
 
-    if(isset($pacotePersonalizado['aereo'])){
+    if(!empty($pacotePersonalizado['aereo'])){
         $aereo = "true";
     } else{
         $aereo = "false";
@@ -242,11 +276,11 @@ function validaAereo(){
     return $aereo; 
 }
 
-function validaValorAereo(){
+function validaValorAereo($pacotePersonalizado,$pacotePadrao){
 
     $valorAereo = null;
 
-    if(validaAereo()){
+    if(validaAereo($pacotePersonalizado)){
         $valorAereo = $pacotePadrao['pacote']['valorAereo'];
     } else{
         $valorAereo = floatval(0) ;

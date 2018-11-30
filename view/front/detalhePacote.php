@@ -171,8 +171,8 @@
         <i class="fa fa-cogs fa-1x"></i>
             Personalise seu pacote
         </h5>
-        <form action="./index.php?p=carrinho&id=<?php echo $pacoteSelecionado['pacote']['codPacote']?>" method="post" enctype="multipart/form-data">
-        
+        <form action="./index.php?p=carrinho" method="post">
+        <input type="hidden" name="pedidoPersonalizado[codPacote]" value="<?php echo $pacoteSelecionado['pacote']['codPacote']?>" />
         <div class="row">
         
             <!-- Data Ida-->
@@ -254,9 +254,9 @@
                 <div class="input-group-prepend">
                     <div class="input-group-text">
                     <?php if($pacoteSelecionado['pacote']['aereo']  == "true") : ?>  
-                        <input  type="checkbox" value="true" name="pedidoPersonalizado[hospedagem]" checked>
+                        <input  type="checkbox" value="true" name="pedidoPersonalizado[aereo]" checked>
                     <? else :?>
-                        <input  type="checkbox" value="true" name="pedidoPersonalizado[hospedagem]" >
+                        <input  type="checkbox" value="true" name="pedidoPersonalizado[aereo]" >
                     <? endif;?>
                     </div>
                 </div>

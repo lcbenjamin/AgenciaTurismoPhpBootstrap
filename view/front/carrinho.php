@@ -7,14 +7,7 @@
 
     /** Verifiica se o usuário esta logado */
     require_once('../../controller/verificaLogado.php');
-    
-    /** Carrega o pacote selecionado */
-    if(isset($_GET['id'])){
-        $idPacote = $_GET['id'];
-        $pacoteSelecionado = carregaDadosPacoteFull($idPacote);
-    }
 
-    validaSolicitacaoPedidoPersonalizado();
 ?>
 
 <!-- Area de alerta e mensagens de erro -->
@@ -45,20 +38,44 @@
 	</thead>
 	<!-- Conteudo -->
 	<tbody>
-	<?php if ($pacotesCarrinho) : ?>
-	<?php foreach ($pacotesCarrinho as $pedido) : ?>
+	<?php if (isset($_SESSION['carrinho'])) : ?>
+
+	<?php foreach ($_SESSION['carrinho'] as $pedido) : ?>
+	<?php $pacoteSelecionado = carregaDadosPacoteFull($pedido['codPacote']);  ?>
+
 		<tr>
 			<!-- PAcote -->
 			<td><?php echo $pacoteSelecionado['pacote']['titulo']; ?></td>
 			<!-- Itens Inclusos -->
-			<td><?php echo $pacotesCarrinho['traslado']; ?></td>
+			<td>
+				<?php if ( ($pedido['hospedagem'] == "false") &&
+						   ($pedido['traslado'] == "false" ) &&
+						   ($pedido['aereo'] == "false" ) )
+						: ?>
+                    <i class="fa fa-ban"></i> Sem serviços
+                <?php endif; ?>
+
+
+                <?php if ($pedido['hospedagem']=="true") : ?>
+                    <i title="Hospedagem" class="fa fa-hotel mx-1"></i>
+                <?php endif; ?>
+
+                <?php if ($pedido['traslado']=="true") : ?>
+                    <i title="Traslado" class="fa fa-bus mx-1"></i>
+                <?php endif; ?>
+
+                <?php if ($pedido['aereo']=="true") : ?>
+                    <i title="Passagens AéreaAéreo" class="fa fa-plane mx-1"></i>
+                <?php endif; ?>
+            
+            </td>
 			<!-- Valor -->
-			<td><?php echo $pacotesCarrinho['traslado']; ?></td>
+			<td><?php echo "Valor"; ?></td>
 
         	<!-- Ações -->
 			<td class="actions">
-				<a href="./painelAdm.php?adm=passeiosMntDetalhe&id=<?php echo $pacotesCarrinho['codPasseio']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> </a>
-				<a href="./painelAdm.php?adm=passeiosMntAlterar&id=<?php echo $pacotesCarrinho['codPasseio']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> </a>
+				<a href="./painelAdm.php?adm=passeiosMntDetalhe&id= " class="btn btn-sm btn-success"><i class="fa fa-eye"></i> </a>
+				<a href="./painelAdm.php?adm=passeiosMntAlterar&id= " class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> </a>
 				<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal-passeio"  onclick="setaDadosModal('<?php echo $pacotesCarrinho['codPasseio']; ?>')">
 					<i class="fa fa-trash"></i> 
 				</a>

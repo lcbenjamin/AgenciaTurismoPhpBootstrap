@@ -3,7 +3,9 @@ require_once('../../config.php');
 require_once(DBAPI);
 require_once('../../controller/beans/pacotesBean.php');
 
-
+/**
+ *  Função que é chamada na pagina principal para carregar os pacotes
+ */
 function carregaDadosPacote(){
     
     $pacotes = find_all('PCT');
@@ -13,7 +15,6 @@ function carregaDadosPacote(){
     $arrayTeste = array();
 
     foreach($pacotes as $pacote){
-        //array_push($pacote['imagensRelacionadas'], find('RPI', 'PCT_codPacote', $pacote['codPacote'],true) );
 
         $arrayTeste =  find('RPI', 'PCT_codPacote', $pacote['codPacote'],true);
 
