@@ -41,17 +41,28 @@ Popper.js
    
 ## Requisitos
 
+<<<<<<< HEAD
 1. A página deve conter um ambiente de controle do acesso.
     1.1 Caso o usuário já tenha cadastro (banco de dados), ele deve informar um login e uma senha      para acessar seu perfil na página.   
     1.2 Caso não tenha cadastro, a página deve apresentar um link para uma página de cadastro do       usuário.  
+=======
+1. A página deve conter um ambiente de controle do acesso.  
+    1.1 Caso o usuário já tenha cadastro (banco de dados), ele deve informar um login e uma senha para acessar seu perfil na página.   
+    1.2 Caso não tenha cadastro, a página deve apresentar um link para uma página de cadastro do usuário.  
+>>>>>>> 7ee11615317e0369eca3782571f16619bda6f736
     1.3 Devem existir dois perfis: Administrador e Cliente.  
     1.4 Deve existir ao menos 01 Administrador e 03 Clientes, previamente cadastrados, no banco       de dados.  
     1.5 As informações de acesso devem ser mantidas em Sessões  
     1.6 Deve existir a opção de desconectar (Logout).  
     
+<<<<<<< HEAD
 2. O cadastro do usuário deve
     2.1 Solicitar: Nome completo, Endereço completo, Telefone, E-mail, RG, CPF, Data de         
         nascimento, Foto e Perfil  
+=======
+2. O cadastro do usuário deve  
+    2.1 Solicitar: Nome completo, Endereço completo, Telefone, E-mail, RG, CPF, Data de nascimento, Foto e Perfil  
+>>>>>>> 7ee11615317e0369eca3782571f16619bda6f736
     2.2 Os dados devem ser validados  
     2.3 Armazenar em banco de dados.  
     2.4 Criticar o cadastramento de usuário existente.  
