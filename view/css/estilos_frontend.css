@@ -23,3 +23,17 @@
     height: 3px;
     width: 100%;
   }
+
+#img_carrinho {
+    max-width:60px;
+    max-height:60px;
+    width: auto;
+    height: auto;
+}
+
+#img_modal_detalhe {
+    max-width:300px;
+    max-height:300px;
+    width: auto;
+    height: auto;
+}

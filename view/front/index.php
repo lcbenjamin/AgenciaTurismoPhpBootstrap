@@ -171,6 +171,7 @@
             if($paginaSelecionada == "cadUsr"){require_once 'cadastrar.html';}
             if($paginaSelecionada == "contato"){require_once 'contato.html';}
             if($paginaSelecionada == "carrinho"){require_once 'carrinho.php';}
+            if($paginaSelecionada == "carrinhoDetalhe"){require_once 'carrinhoDetalhe.php';}
             if($paginaSelecionada == "pacotes"){require_once 'pacotes.php';}
             if($paginaSelecionada == "detalhePacote"){require_once 'detalhePacote.php';}
             if($paginaSelecionada == "pctInternacionais"){require_once 'pacotesInternacionais.html';}
@@ -178,29 +179,6 @@
             
         ?>
     </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="modalSite" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Titulo do modal</h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>kskdjskdalksjdlkasjldkajsldkjalskdjalskd</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">
-                        <span>fechar</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
 <!-- Caso não esteja exibe mensagem de erro na tela -->
 <?php else : ?>

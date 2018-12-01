@@ -1,5 +1,5 @@
 <!-- Modal de exclusão de Pacote-->
-<div class="modal fade" id="delete-modal-item-carrinho" tabindex="-1" role="dialog" aria-labelledby="modalLabel">>
+<div class="modal fade" id="delete-modal-item-carrinho" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
    <div class="modal-dialog" role="document">
      <div class="modal-content">
        <div class="modal-header">
@@ -12,7 +12,7 @@
          <p>Deseja realmente excluir o pedido do carrinho?</p>
        </div>
        <div class="modal-footer">
-        <a id="confirmaExcItemCarrinho" class="btn btn-primary" href="#">Sim</a>
+        <a id="confirmaExcPacoteCarrinho" class="btn btn-primary" href="#">Sim</a>
         <a id="cancela" class="btn btn-info" data-dismiss="modal">N&atilde;o</a>
        </div>
      </div>
