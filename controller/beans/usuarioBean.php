@@ -116,7 +116,7 @@ function validaInclusaoUsuario(){
 				$usuario['codImagem'] = $id_imagem;
 
 				/** Adiciona a data e hora do cadastro e salva Usuário */
-				$usuario['dataHoraCadastro'] = $date = date('d/m/Y H:i');
+				$usuario['dataHoraCadastro'] = date('Y/m/d H:i');
 				$result = salva_usuario($usuario);
 
 				/** Caso tenha erro ao cadastrar usuário */

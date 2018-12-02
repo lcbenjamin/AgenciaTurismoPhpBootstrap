@@ -2,9 +2,6 @@
 require_once('../../config.php');
 require_once(DBAPI);
 
-
-
-
 /********************************
  *  Adiciona itens ao carrinho  *
  ********************************/
@@ -56,17 +53,41 @@ if(isset($_GET['idExcluir'])){
     unset($_SESSION['carrinho'][$codPacote]);
 }
 
-/********************************
- *  Detalha item do carrinho  *
- ********************************/
+/***************************
+ *  Fecha compra carrinho  *
+ **************************/
 
-if(isset($_GET['idDetalhe'])){
+ if(isset($_GET['confirma']) && isset($_SESSION['carrinho'])){
+
+        
+    echo "Aquiiii";
+
+    $confirmado = 0;
     
-    echo"
-    <script>
-        $('#detalhe-modal-item-carrinho').modal(show);
-    <script>";
-}
+    /** Salva os pedidos no banco de dados */
+    foreach($_SESSION['carrinho'] as $itemPedido){
+        $itemPedido['dataHoraCadastro'] = date('Y/m/d H:i'); 
+        $confirmado = saveReturnID('PED',$itemPedido);
+    }
+     
+
+    /** Caso tenha sucesso  */
+    if($confirmado != 0){
+        $_SESSION['message'] = 'Pedido finalizado com sucesso.';
+        $_SESSION['type'] = 'success';  
+        
+    } else{
+        $_SESSION['message'] = 'Nao foi possivel realizar a operacao'; 
+        $_SESSION['type'] = 'danger';
+    }
+
+    /** limpa carrinho */
+    unset($_SESSION['carrinho']);
+ }
+
+
+
+
 
 /****************************************
  *  Trata a adição de item no carrinho  *
@@ -244,12 +265,12 @@ function validaValor($pacotePersonalizado,$pacotePadrao){
     } else {
         $valorHospedagem =  floatval(0) ;
     }
-    
+
     /** Valor do Traslado */
     if(!empty($pacotePersonalizado['traslado'])){
         $valorTraslado =    floatval($pacotePadrao['pacote']['valorTraslado']);
     } else {
-        $valorHospedagem =  floatval(0) ;
+        $valorTraslado =  floatval(0) ;
     }
 
     /** Valor aereo */

@@ -14,7 +14,7 @@
     }
 
 ?>
-
+<form action="./index.php?p=carrinho" method="post">
 <div class="row">
     <!-- Coluna esquerda -->
     <div class="col-md-8">
@@ -82,7 +82,7 @@
 
         <!-- Hospedagem -->
         <p> 
-            <?php if($pacoteSelecionado['pacote']['hospedagem']):?>
+            <?php if($pacoteSelecionado['pacote']['hospedagem'] == "true"):?>
                 <b>Hospedagem</b><br>
                 Hospedagem para 1 pessoa durante todo o período do pacote
                 por apenas R$ <?php echo number_format($pacoteSelecionado['pacote']['valorHospedagem'], 2, ',', '.'); ?> 
@@ -92,7 +92,7 @@
 
         <!-- Traslao -->
         <p> 
-            <?php if($pacoteSelecionado['pacote']['traslado']):?>
+            <?php if($pacoteSelecionado['pacote']['traslado'] == "true"):?>
                 <b>Traslado</b><br>
                 Não se preocupe, nos te pegamos e deixamos no aeroporto!
                 por apenas R$ <?php echo number_format($pacoteSelecionado['pacote']['valorTraslado'], 2, ',', '.'); ?> 
@@ -102,7 +102,7 @@
 
         <!-- Transporte aéreo -->
         <p> 
-            <?php if($pacoteSelecionado['pacote']['traslado']):?>
+            <?php if($pacoteSelecionado['pacote']['traslado'] == "true" ):?>
                 <b>Transporte Aéreo</b><br>
                 Parece mágica, mas por um valor fixo você vai te avião até o seu destino!
                 por apenas R$ <?php echo number_format($pacoteSelecionado['pacote']['valorAereo'], 2, ',', '.'); ?> 
@@ -121,7 +121,7 @@
 
         <!-- Botão de comprar -->
         <center>
-            <a href="#" class="btn btn-primary" style="width: 80%;"> <b>Eu quero esse pacote!! </b></a>
+            <button type="submit" class="btn btn-success">Adicionar pacote ao carrinho</button>
         </center>
     </div>
 
@@ -171,7 +171,7 @@
         <i class="fa fa-cogs fa-1x"></i>
             Personalise seu pacote
         </h5>
-        <form action="./index.php?p=carrinho" method="post">
+        
         <input type="hidden" name="pedidoPersonalizado[codPacote]" value="<?php echo $pacoteSelecionado['pacote']['codPacote']?>" />
         <div class="row">
         
@@ -264,7 +264,7 @@
                 </div>
             </div>
             <div class="form-group col-md-12 text-right">
-                <button type="submit" class="btn btn-secundary">Personalizar e comprar</button>
+                
             </div>
         </div>
     </form>

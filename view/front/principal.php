@@ -17,7 +17,7 @@
     <div class="col-12 text-left my-3">
     <h2 class="display-6 text-dark">
             <i class="fa fa-suitcase mr-2"></i>    
-            <u>Pacotes nacionais</u>
+            <u>Pacotes em destaque</u>
     </h2>
     </div>
 </div>

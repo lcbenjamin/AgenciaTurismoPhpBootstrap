@@ -285,6 +285,13 @@ function caculaDiarias($dataIncio,$dataFim){
 
 function calculaValorTotalPacote($pacoteInformado){
 
+    /** Inicia as variaveis de retorno */
+    $diarias = null;
+    $valorBase = null;
+    $valorHospedagem = null;
+    $valorTraslado = null;
+    $valorAereo = null;
+
     /** Quantidade de dias de duração do pacote */
     $diarias = caculaDiarias($pacoteInformado['dataInicio'],$pacoteInformado['dataFim']);
 
@@ -292,14 +299,27 @@ function calculaValorTotalPacote($pacoteInformado){
     $valorBase =        floatval($pacoteInformado['valorBase']) ;
 
     /** Valor da diaria de hospedagem multiplicado pelas diarias do pacote */
-    $valorHospedagem =  floatval($pacoteInformado['valorHospedagem']) * $diarias  ;
-
-    /** Valor passagem aerea ida e volta do local de saida para o destino */
-    $valorTraslado =    floatval($pacoteInformado['valorTraslado']);
-
-    /** Traslado entre o hotel e aeroporto */
-    $valorAereo =       floatval($pacoteInformado['valorAereo']);
-
+    if($pacoteInformado['hospedagem'] == "true"){
+        $valorHospedagem =  floatval($pacoteInformado['valorHospedagem']) * $diarias  ;
+    } else{
+        $valorHospedagem = floatval(0);
+    }
+    
+    /** Valor do traslado  */
+    if($pacoteInformado['traslado'] == "true"){
+        $valorTraslado =    floatval($pacoteInformado['valorTraslado']);
+    } else{
+        $valorTraslado = floatval(0);
+    }
+    
+    /** Valor aereo */
+    if($pacoteInformado['aereo'] == "true"){
+        $valorAereo =       floatval($pacoteInformado['valorAereo']);
+    } else{
+        $valorAereo = floatval(0);
+    }
+    
+    /** Soma todos os itens */
     $valorTotal =   $valorBase + $valorHospedagem + $valorTraslado + $valorAereo;
     return $valorTotal;    
 }

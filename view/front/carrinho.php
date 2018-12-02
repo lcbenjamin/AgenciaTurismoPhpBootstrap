@@ -10,14 +10,6 @@
 
 ?>
 
-<!-- Area de alerta e mensagens de erro -->
-<?php if (!empty($_SESSION['message'])) : ?>
-	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		<?php echo $_SESSION['message']; ?>
-	</div>
-<?php endif; ?>
-
 <!-- Titulo Carrinho-->
 <div class="row" id="tituloCarrinho">
     <div class="col-12 text-left my-3">
@@ -27,6 +19,14 @@
     </h2>
     </div>
 </div>
+<!-- Area de alerta e mensagens de erro -->
+<?php if (!empty($_SESSION['message'])) : ?>
+	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<?php echo $_SESSION['message']; ?>
+		<?php unset($_SESSION['message']); ?>
+	</div>
+<?php endif; ?>
 
 <hr/>
 
@@ -38,7 +38,7 @@
                     <thead>
                         <tr class="bg-dark text-light">
                             <th scope="col" class="text-center"> </th>
-                            <th scope="col" class="text-center">Titulo</th>
+                            <th scope="col" class="text-center">Pacote</th>
                             <th scope="col" class="text-center">Diarias</th>
                             <th scope="col" class="text-center">Serviços incluidos</th>
                             <th scope="col" class="text-center" >Valor</th>
@@ -138,10 +138,10 @@
         <div class="col mb-2">
             <div class="row justify-content-end">
                 <div class="col-md-3">
-                    <a href="#" class="btn btn-md btn-block btn-info text-uppercase">Continue comprando</a>
+                    <a href="index.php#tituloPrincipal" class="btn btn-md btn-block btn-info ">Continue comprando</a>
                 </div>
                 <div class="col-md-2 text-right">
-                    <a href="#" class="btn btn-md btn-block btn-success text-uppercase">Comprar</a>
+                    <a href="#" class="btn btn-md btn-block btn-success"  data-toggle="modal" data-target="#confirma-modal-item-carrinho">Fechar Compra</a>
                 </div>
             </div>
         </div>

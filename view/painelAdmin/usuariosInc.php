@@ -13,10 +13,6 @@
     carrega_estados();
 ?>
 
-
-
-
-
 <hr />
 <div class="bg-gradient-light py-1 pl-1 align-middle" >
   <h4>Usuários > Incluir</h4>
