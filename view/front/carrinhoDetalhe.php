@@ -158,6 +158,18 @@
                                         ?>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td class="text-right">Aéreo:</td>
+                                    <td>
+                                        <?php
+                                         if($pacotePersonalizado['aereo']=="true"){
+                                             echo "Incluido no pacote";
+                                         } else {
+                                            echo "Não Incluido no pacote";
+                                         }
+                                        ?>
+                                    </td>
+                                </tr>                                
                                 <tr class="bg-light">
                                     <td colspan="2"><h3>Composição do valor</h3></td>
                                 </tr>

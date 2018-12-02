@@ -18,9 +18,14 @@
 	</div>
 <?php endif; ?>
 
-<!-- Corpo do carrinho-->
-<div class="row ml-3">
-<h4><b>Meus Pedidos</b></h4>
+<!-- Titulo Carrinho-->
+<div class="row" id="tituloCarrinho">
+    <div class="col-12 text-left my-3">
+    <h2 class="display-6 text-dark">
+            <i class="fa fa-cart-plus mr-2"></i>    
+            Carrinho
+    </h2>
+    </div>
 </div>
 
 <hr/>

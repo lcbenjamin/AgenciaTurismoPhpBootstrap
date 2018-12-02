@@ -37,11 +37,14 @@
     <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark pt-0 pb-0">
         <div class="collapse navbar-collapse" id="navbarCabecalho">
             <ul class="navbar-nav ml-auto">
+
+                <!-- Item icone linkedIn -->
                 <li class="nav-item">
                     <a class="nav-link" href="https://www.linkedin.com/in/lcbenjamin/" target="_blank">
                         <img src="../imagens/logos/LinkedIn-Logo.png" alt="Linkedin Lucas Costa">
                     </a>
                 </li>
+                <!-- Item de usuário logado -->
                 <li class="nav-item">
                     <?php if(!isset($_SESSION['logado'])) : ?>
                         <a class="nav-link text-white" href="login.php"><small><b>Entrar</b></small></a>
@@ -54,14 +57,18 @@
                         </a>
                     <?php endif; ?>
                 </li>
+                <!-- Item de logout -->
                 <?php if(isset($_SESSION['logado'])) : ?>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="../../controller/logout.php"><small>Sair</small></a>
                 </li>
                 <?php endif; ?>
-  
-  
-  
+                <!-- Item Carinho -->
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="index.php?p=carrinho#tituloCarrinho">
+                    <i class="fa fa-cart-plus"></i>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -80,18 +87,18 @@
             <div class="collapse navbar-collapse ml-5 mt-2" id="navbarSite">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item mr-4">
-                        <a class="nav-link" href="./index.php?p=home">Home</a>
+                        <a class="nav-link" href="./index.php?p=home#tituloPrincipal">Home</a>
                     </li>
                     <li class="nav-item dropdown mr-4">
                     <li class="nav-item mr-4">
-                        <a class="nav-link" href="./index.php?p=pacotes">Pacotes</a>
+                        <a class="nav-link" href="./index.php?p=pacotes#tituloPacotes">Pacotes</a>
                     </li>
                     </li>
                     <li class="nav-item mr-4">
-                        <a class="nav-link" href="./index.php?p=quemSomos">Quem somos</a>
+                        <a class="nav-link" href="./index.php?p=quemSomos#tituloQuemSomos">Quem somos</a>
                     </li>
                     <li class="nav-item mr-4">
-                        <a class="nav-link" href="./index.php?p=contato">Contato</a>
+                        <a class="nav-link" href="./index.php?p=contato#tituloContato">Contato</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../painelAdmin/painelAdm.php">Painel</a>
