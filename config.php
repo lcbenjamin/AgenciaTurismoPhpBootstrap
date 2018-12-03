@@ -1,5 +1,9 @@
 <?php
 
+/** Timezone do servidor */
+date_default_timezone_set("America/Recife");
+setlocale(LC_ALL, 'pt_BR');
+
 /** O nome do banco de dados*/
 define('DB_NAME', 'AgenciaTurismo');
 /** Usuário do banco de dados MySQL */

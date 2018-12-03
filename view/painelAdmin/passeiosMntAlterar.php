@@ -63,7 +63,7 @@
     <!-- Valor -->
     <div class="form-group col-md-2">
       <label for="valor">Valor *</label>
-      <input type="text" value="<?php echo $passeio['valor']; ?>" class="form-control" name="passeio[valor]">
+      <input type="text" value="<?php echo $passeio['valor']; ?>" class="form-control valorMoeda" name="passeio[valor]">
     </div>
   </div>
   
@@ -134,6 +134,7 @@
 <script src="../../node_modules/popper.js/dist/umd/popper.js"></script>
 <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 <script src="../../node_modules/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="../../controller/scripts/main.js"></script>
 <script src="../../controller/scripts/mascaras.js"></script>
 
 <!-- Script para tratamento do campo Municipio-->

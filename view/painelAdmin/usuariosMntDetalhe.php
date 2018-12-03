@@ -26,11 +26,11 @@
 	</div>
 </header>
 <hr>
-<!-- <h3 class="mb-5 text-center">Perfil de <?php echo $usuario['primeiroNome'];?></h3> -->
-<div class="row">
+
+<div class="row justify-content-left">
 
     <div class="col-sm-2 ml-3 text-left">
-        <img class="media-object" src="../imagens/img_usuarios/<?php echo carrega_caminho_imagem($usuario['codImagem'])['nome'];?>">    
+        <img class="media-object" src="../imagens/img_usuarios/<?php echo carrega_caminho_imagem($usuario['codImagem'])['nome'];?>" id="img_usuario_detalhe">    
     </div>
 
     <div class="col-sm-7 text-left">
@@ -81,7 +81,14 @@
                 </tr>
                 <tr>		
                     <td><b>Perfil</b></td>
-                    <td><?php echo $usuario['codPerfil']; ?></td>
+                    <td><?php
+                        if($usuario['codPerfil'] == '1'){
+                            echo "Cliente";
+                        }
+                        if($usuario['codPerfil'] == '2'){
+                            echo "Administrador";
+                        } 
+                    ?></td>
                 </tr>
                 <tr>		
                     <td><b>Estado</b></td>

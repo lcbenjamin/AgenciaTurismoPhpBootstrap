@@ -35,23 +35,23 @@
 
     <div class="form-group col-md-4">
       <label for="primeiroNome">Primeiro Nome *</label>
-      <input type="text" class="form-control" name="usuario[primeiroNome]" >
+      <input type="text" class="form-control" name="usuario[primeiroNome]" maxlength="30" required>
     </div>
 
     <div class="form-group col-md-3">
       <label for="ultimoNome">Sobrenome *</label>
-      <input type="text" class="form-control" name="usuario[ultimoNome]">
+      <input type="text" class="form-control" name="usuario[ultimoNome]" maxlength="30" required>
     </div>
 
     <div class="form-group col-md-3">
       <label for="cpf">CPF *</label>
-      <input type="text" class="form-control" name="usuario[cpf]" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14">
+      <input type="text" class="form-control" name="usuario[cpf]" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
     </div>
 
     <div class="form-group col-md-2">
       <label for="dataNascimento">Data de Nascimento*</label>
       <div class="input-group mb-2">
-        <input type="text" class="form-control dataFormatada"  name="usuario[dataNascimento]" placeholder="dd/mm/aaaa" aria-describedby="basic-addon2" id="dataNascimento" maxlength="10">
+        <input type="text" class="form-control dataFormatada"  name="usuario[dataNascimento]" placeholder="dd/mm/aaaa" aria-describedby="basic-addon2" id="dataNascimento" maxlength="10" required> 
         <div class="input-group-append">
           <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar"></i></span>
         </div>
@@ -64,7 +64,7 @@
   <div class="row">
     <div class="form-group col-md-4">
       <label for="endereco">Endereço *</label>
-      <input type="text" class="form-control" name="usuario[endereco]" maxlength="100">
+      <input type="text" class="form-control" name="usuario[endereco]" maxlength="100" required>
     </div>
 
     <div class="form-group col-md-2">
@@ -74,12 +74,12 @@
 
     <div class="form-group col-md-4">
       <label for="email">Email *</label>
-      <input type="text" class="form-control" name="usuario[email]" maxlength="30">
+      <input type="email" class="form-control" name="usuario[email]" maxlength="30" required>
     </div>
 
     <div class="form-group col-md-2">
       <label for="senha">Senha *</label>
-      <input type="password" class="form-control" name="usuario[senha]" maxlength="16" >
+      <input type="password" class="form-control" name="usuario[senha]" maxlength="16" required>
     </div>
   </div>
   
@@ -87,7 +87,7 @@
   <div class="row">
     <div class="form-group col-md-2">
       <label for="id_estado">UF *</label>
-      <select name="usuario[codEstado]" id="id_estado" class="form-control">
+      <select name="usuario[codEstado]" id="id_estado" class="form-control" required>
         <option value ="NA" selected>Escolher...</option>        
             <?php if ($estados) : ?>
             <?php foreach ($estados as $estado) : ?>

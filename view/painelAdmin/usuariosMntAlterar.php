@@ -1,13 +1,18 @@
 <?php
-    /** Includes e conexões com o banco */    
+    /** Includes e conexões com o banco */
     require_once '../../config.php';
     require_once DBAPI;
+
     require_once('../../controller/beans/usuarioBean.php');
     require_once('../../controller/beans/estadoBean.php');
     require_once('../../controller/beans/cidadeBean.php');
+    
     carrega_usuarios();
     carrega_estados();
     editar_usuario();
+
+    $id = $_GET['id'];
+    $usuario =  carregaUsuarioPorId($id);
 ?>
 
 <hr />
@@ -23,12 +28,6 @@
 	</div>
 <?php endif; ?>
 
-<!-- Inicio do loop usuário -->
-  <?php $id = $_GET['id']; ?>
-	<?php if ($usuarios) : ?>
-	  <?php foreach ($usuarios as $usuario) : ?>
-    <?php if ($usuario['codigoUsuario'] ==  $id ) : ?>
-
 <!-- Formulario de inclusão -->
 <form action="painelAdm.php?adm=usuariosMntAlterar&id=<?php echo $usuario['codigoUsuario']; ?>&altera=ok" method="post" enctype="multipart/form-data">
 <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
@@ -37,24 +36,24 @@
   <div class="row">
      <!-- Primeiro Nome -->
     <div class="form-group col-md-4">
-      <label for="primeiroNome">Primeiro Nome </label>
+      <label for="primeiroNome">Primeiro Nome</label>
       <input type="text" value="<?php echo $usuario['primeiroNome']; ?>" class="form-control" name="usuario[primeiroNome]" >
     </div>
      <!-- Sobrenome -->
     <div class="form-group col-md-3">
-      <label for="ultimoNome">Sobrenome </label>
+      <label for="ultimoNome">Sobrenome</label>
       <input type="text" value="<?php echo $usuario['ultimoNome']; ?>" class="form-control" name="usuario[ultimoNome]">
     </div>
      <!-- CPF -->
     <div class="form-group col-md-3">
-      <label for="cpf">CPF </label>
+      <label for="cpf">CPF</label>
       <input type="text"  value="<?php echo $usuario['cpf']; ?>" class="form-control" name="usuario[cpf]" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14">
     </div>
      <!-- Data Nascimento -->
     <div class="form-group col-md-2">
       <label for="dataNascimento">Data de Nascimento</label>
       <div class="input-group mb-2">
-        <input type="text"  value="<?php echo $usuario['dataNascimento']; ?>" class="form-control" name="usuario[dataNascimento]"  aria-describedby="basic-addon2" id="dataNascimento" maxlength="10">
+        <input type="text"  value="<?php echo $usuario['dataNascimento']; ?>" class="form-control dataFormatada" name="usuario[dataNascimento]"  aria-describedby="basic-addon2" id="dataNascimento" maxlength="10">
         <div class="input-group-append">
           <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar"></i></span>
         </div>
@@ -78,7 +77,7 @@
      <!-- Email -->
     <div class="form-group col-md-4">
       <label for="email">Email </label>
-      <input type="text"  value="<?php echo $usuario['email']; ?>" class="form-control" name="usuario[email]" maxlength="30">
+      <input type="email"  value="<?php echo $usuario['email']; ?>" class="form-control" name="usuario[email]" maxlength="30">
     </div>
 
     <!-- Status -->
@@ -174,11 +173,6 @@
 </form>
 <hr />
     
-    <?php endif; ?>
-  <?php endforeach; ?>
-<?php else : ?>
-		<h4>Nenhum registro encontrado.</h4>
-<?php endif; ?>
 
 <!--
 =============================  

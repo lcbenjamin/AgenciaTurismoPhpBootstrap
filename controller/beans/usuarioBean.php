@@ -13,6 +13,16 @@ function carrega_usuarios() {
 }
 
 /**
+ *  Carrega usuário por ID
+ */
+function carregaUsuarioPorId($id){
+	
+	$usuario = find('USR', 'codigoUsuario', $id, false);
+
+	return $usuario;
+
+}
+/**
  *  Adiciona um registro na tabela de usuário
  */
 function salva_usuario($usuario) {	
@@ -147,8 +157,6 @@ function salvaFotoPerfil($descricao){
 	
     $novoNome = uniqid (time()) . '.' . $extensao;
 	$caminhoAbsoluto = SITE_RAIZ . 'view/imagens/img_usuarios/' . $novoNome;
-
-	echo $caminhoAbsoluto;
 
 	// tenta mover o arquivo para o servidor e salva imagem no banco
 	if ( @move_uploaded_file ( $arquivo_tmp, $caminhoAbsoluto ) ) {
