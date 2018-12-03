@@ -1,6 +1,17 @@
 <?php
 require_once('../../config.php');
 require_once(DBAPI);
+$pedidos = null;
+
+
+/*********************************
+ *  Carrega pedidos cadastrados *
+ *********************************/
+function carrega_pedidos() {
+	global $pedidos;
+	$pedidos = find_all('PED');
+}
+
 
 /********************************
  *  Adiciona itens ao carrinho  *
@@ -85,10 +96,6 @@ if(isset($_GET['idExcluir'])){
     unset($_SESSION['carrinho']);
  }
 
-
-
-
-
 /****************************************
  *  Trata a adição de item no carrinho  *
  ****************************************/
@@ -171,7 +178,7 @@ function trataSolicitacaoPedidoPersonalizado(){
             "aereo" => $aereo,
             "valorAereo" => $valorAereo,
             "valorTotal" => $valorTotal,
-            "status" => "solicitado",
+            "status" => "Solicitado",
         );
 
         /** Define variavel global para uso em tela */
@@ -336,3 +343,73 @@ function validaValorAereo($pacotePersonalizado,$pacotePadrao){
 
     return $valorAereo; 
 }
+
+/** Confirma um pedido */
+function confirmaPedido(){
+
+    if(isset($_GET['confirmaPedido'])){
+        $id = $_GET['confirmaPedido'];
+
+        /** Carrega pedido para alteração */
+        $pedido = retornaPedidoPorID($id);
+
+        /** Altera status para confirmado */
+        $pedido['status'] = "Confirmado";
+
+        update('PED','codPedido', $id , $pedido);
+
+        $_SESSION['message'] = 'Pedido confirmado com sucesso.';
+        $_SESSION['type'] = 'success';
+    }
+
+}
+
+/** Confirma um pedido */
+function cancelaPedido(){
+
+    if(isset($_GET['cancelaPedido'])){
+        $id = $_GET['cancelaPedido'];
+
+        /** Carrega pedido para alteração */
+        $pedido = retornaPedidoPorID($id);
+
+        /** Altera status para confirmado */
+        $pedido['status'] = "Cancelado";
+
+        update('PED','codPedido', $id , $pedido);
+
+        $_SESSION['message'] = 'Pedido Cancelado com sucesso.';
+        $_SESSION['type'] = 'success';
+    }
+
+}
+
+
+
+/****************
+ *  UTILITARIOS *
+ ****************/
+
+ function retornaNomeSobrenomeUsuario($codigoCliente){
+    $usuario   = find('USR', 'codigoUsuario', $codigoCliente, false);
+    
+    return $usuario['primeiroNome'] . " " . $usuario['ultimoNome'];
+ }
+
+ function retornaTituloPacote($codigoPacote){
+    $pacote   = find('PCT', 'codPacote', $codigoPacote, false);
+    
+    return $pacote['titulo'];
+ }
+
+ function retornaPedidoPorID($codigoPedido){
+    $pedido   = find('PED', 'codPedido', $codigoPedido, false);
+    
+    return $pedido;
+ }
+
+ function retornaPacotePorID($codigoPacote){
+    $pacote   = find('PCT', 'codPacote', $codigoPacote, false);
+    
+    return $pacote;
+ }

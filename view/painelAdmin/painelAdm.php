@@ -27,7 +27,7 @@
 	Cabecalho navbar
 	=====================
 	-->
-	<nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark navbar-static-top">
 		<div class="collapse navbar-collapse" id="navbarCabecalho">
 			<ul class="navbar-nav ml-left">
 				<a class="navbar-brand h1 mb-0 py-0" href="../front/index.php?p=home">
@@ -99,7 +99,7 @@
 							if($paginaSelecionada == "pacotesMntAlterar"){require_once 'pacotesMntAlterar.php';}																
 							if($paginaSelecionada == "pacotesInc"){require_once 'pacotesInc.php';}
 							if($paginaSelecionada == "pedidosMnt"){require_once 'pedidosMnt.php';}
-							if($paginaSelecionada == "pedidosInc"){require_once 'pedidosInc.php';}
+							if($paginaSelecionada == "pedidosMntDetalhe"){require_once 'pedidosMntDetalhe.php';}
 							if($paginaSelecionada == "caixaEntrada"){require_once 'caixaEntrada.php';}
 							
 						?>
