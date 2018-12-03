@@ -148,6 +148,8 @@ function salvaFotoPerfil($descricao){
     $novoNome = uniqid (time()) . '.' . $extensao;
 	$caminhoAbsoluto = SITE_RAIZ . 'view/imagens/img_usuarios/' . $novoNome;
 
+	echo $caminhoAbsoluto;
+
 	// tenta mover o arquivo para o servidor e salva imagem no banco
 	if ( @move_uploaded_file ( $arquivo_tmp, $caminhoAbsoluto ) ) {
 
@@ -176,7 +178,7 @@ function salvaFotoPerfil($descricao){
 		}
 	} 
 	else {		
-		$_SESSION['message'] = 'Erro ao salvar o arquivo.';
+		$_SESSION['message'] = 'Erro ao salvar o arquivo. Verifique permissão no servidor';
 		$_SESSION['type'] = 'danger';
 		return null;
 	}
@@ -304,26 +306,25 @@ function validaCPF($cpf) {
 
 function validaDataNascimento($dataNascimento){
 
-	//Verifica se o usuário nasceu no futuro
-	if(strcmp($dataNascimento,date('d/m/Y')) >= 0 ){
-		$_SESSION['message'] = 'O campo "Data de nascimento" esta inválido. Você nasceu no Futuro?';
+	$timeZone = new DateTimeZone('UTC');
+
+	/** Assumido que $dataEntrada e $dataSaida estao em formato dia/mes/ano */
+	$data1 = DateTime::createFromFormat ('d/m/Y', $dataNascimento, $timeZone);
+	$data2 = DateTime::createFromFormat ('d/m/Y', date('d/m/Y'), $timeZone);
+
+	/** Testa se sao validas */
+	if (!($data1 instanceof DateTime)) {
+		$_SESSION['message'] = 'O campo "Data de Nascimento" esta invalido';
 		$_SESSION['type'] = 'danger';
 		return false;
 	}
 
-	//Verifica se o usuário nasceu hoje
-	if(strcmp($dataNascimento,date('d/m/Y')) == 0 ){
-		$_SESSION['message'] = 'O campo "Data de nascimento" esta inválido. Vai me dizer que você nasceu hoje?';
+	if ($data1 > $data2) {
+		$_SESSION['message'] = 'O campo "Data de Nascimento" está no futuro';
 		$_SESSION['type'] = 'danger';
 		return false;
 	}
 
-	//Verifica se o usuário nasceu hoje
-	if($dataNascimento == null ){
-		$_SESSION['message'] = 'O campo "Data de nascimento" não pode ser vazio';
-		$_SESSION['type'] = 'danger';
-		return false;
-	}
 	return true;
 }
 

@@ -114,7 +114,7 @@ CREATE TABLE `IMG` (
   `tipo` varchar(100) DEFAULT NULL,
   `dataHoraCadastro` varchar(45) NOT NULL,
   PRIMARY KEY (`codImagem`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +123,7 @@ CREATE TABLE `IMG` (
 
 LOCK TABLES `IMG` WRITE;
 /*!40000 ALTER TABLE `IMG` DISABLE KEYS */;
-INSERT INTO `IMG` VALUES (64,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15432772595bfc8acbd7d1a.png','15432772595bfc8acbd7d1a.png','Foto do usuário Lucas Benjamin',25957,'fotoUsuario','image/png','27-11-2018 01:07'),(65,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15432773645bfc8b34e88e9.jpg','15432773645bfc8b34e88e9.jpg','Foto do usuário Bruna Canuto',8523,'fotoUsuario','image/jpeg','27-11-2018 01:09'),(66,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15432776075bfc8c2789d09.jpg','15432776075bfc8c2789d09.jpg','Foto do usuário Ryan Gosling',7929,'fotoUsuario','image/jpeg','27-11-2018 01:13'),(67,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_pacotes/15432779035bfc8d4f1ecfc.jpg','15432779035bfc8d4f1ecfc.jpg','Foto de pacote de viagem',356150,'Pacotes','image/jpeg','27-11-2018 01:18'),(68,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_pacotes/15432779035bfc8d4f4a5c0.jpg','15432779035bfc8d4f4a5c0.jpg','Foto de pacote de viagem',94592,'Pacotes','image/jpeg','27-11-2018 01:18'),(69,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_pacotes/15432779035bfc8d4f75f08.jpg','15432779035bfc8d4f75f08.jpg','Foto de pacote de viagem',371136,'Pacotes','image/jpeg','27-11-2018 01:18'),(70,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_pacotes/15432779035bfc8d4fa1943.jpg','15432779035bfc8d4fa1943.jpg','Foto de pacote de viagem',148677,'Pacotes','image/jpeg','27-11-2018 01:18'),(71,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_pacotes/15433565635bfdc09323b6d.jpg','15433565635bfdc09323b6d.jpg','Foto de pacote de viagem',116090,'Pacotes','image/jpeg','27-11-2018 23:09'),(72,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_pacotes/15433565635bfdc0934743e.jpg','15433565635bfdc0934743e.jpg','Foto de pacote de viagem',193194,'Pacotes','image/jpeg','27-11-2018 23:09'),(73,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_pacotes/15433565635bfdc0937dbaf.jpg','15433565635bfdc0937dbaf.jpg','Foto de pacote de viagem',371136,'Pacotes','image/jpeg','27-11-2018 23:09'),(74,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_pacotes/15433565635bfdc093a94ce.jpg','15433565635bfdc093a94ce.jpg','Foto de pacote de viagem',94592,'Pacotes','image/jpeg','27-11-2018 23:09'),(75,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_pacotes/15433566785bfdc10642df8.jpg','15433566785bfdc10642df8.jpg','Foto de pacote de viagem',185469,'Pacotes','image/jpeg','27-11-2018 23:11'),(76,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_pacotes/15433566785bfdc1067ecfc.jpg','15433566785bfdc1067ecfc.jpg','Foto de pacote de viagem',119403,'Pacotes','image/jpeg','27-11-2018 23:11'),(77,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_pacotes/15433566785bfdc10694b06.jpg','15433566785bfdc10694b06.jpg','Foto de pacote de viagem',231368,'Pacotes','image/jpeg','27-11-2018 23:11'),(78,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_pacotes/15433566785bfdc106ad33f.jpg','15433566785bfdc106ad33f.jpg','Foto de pacote de viagem',91774,'Pacotes','image/jpeg','27-11-2018 23:11'),(79,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15433574275bfdc3f36c520.jpeg','15433574275bfdc3f36c520.jpeg','Foto do usuário Jedson Moura',3521,'fotoUsuario','image/jpeg','27-11-2018 23:23'),(80,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15433629325bfdd9746d956.jpg','15433629325bfdd9746d956.jpg','Foto do usuário Ryan Gosling',4398,'fotoUsuario','image/jpeg','28-11-2018 00:55');
+INSERT INTO `IMG` VALUES (64,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15432772595bfc8acbd7d1a.png','15432772595bfc8acbd7d1a.png','Foto do usuário Lucas Benjamin',25957,'fotoUsuario','image/png','27-11-2018 01:07'),(65,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15432773645bfc8b34e88e9.jpg','15432773645bfc8b34e88e9.jpg','Foto do usuário Bruna Canuto',8523,'fotoUsuario','image/jpeg','27-11-2018 01:09'),(66,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15432776075bfc8c2789d09.jpg','15432776075bfc8c2789d09.jpg','Foto do usuário Ryan Gosling',7929,'fotoUsuario','image/jpeg','27-11-2018 01:13'),(79,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15433574275bfdc3f36c520.jpeg','15433574275bfdc3f36c520.jpeg','Foto do usuário Jedson Moura',3521,'fotoUsuario','image/jpeg','27-11-2018 23:23'),(80,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15433629325bfdd9746d956.jpg','15433629325bfdd9746d956.jpg','Foto do usuário Ryan Gosling',4398,'fotoUsuario','image/jpeg','28-11-2018 00:55'),(88,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15434619475bff5c3bb78f0.png','15434619475bff5c3bb78f0.png','Foto do usuário Jedson Moura',25957,'fotoUsuario','image/png','29-11-2018 04:25'),(89,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15434619795bff5c5b99581.jpg','15434619795bff5c5b99581.jpg','Foto do usuário Jedson ',8932,'fotoUsuario','image/jpeg','29-11-2018 04:26'),(90,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15434620855bff5cc5811a2.jpg','15434620855bff5cc5811a2.jpg','Foto do usuário Ryan Goslingasssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',7929,'fotoUsuario','image/jpeg','29-11-2018 04:28'),(91,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15434621205bff5ce83c9a5.jpg','15434621205bff5ce83c9a5.jpg','Foto do usuário Ryan Gosling',7929,'fotoUsuario','image/jpeg','29-11-2018 04:28'),(92,'/home/lucas/Desenvolvimento/WORSPACE/web/agencia_turismo/view/imagens/img_usuarios/15434622325bff5d5845827.jpg','15434622325bff5d5845827.jpg','Foto do usuário Ryan Gosling',8523,'fotoUsuario','image/jpeg','29-11-2018 04:30'),(93,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_usuarios/15438116565c04b2483464f.png','15438116565c04b2483464f.png','Foto do usuário Lucas Benjamin',25957,'fotoUsuario','image/png','03-12-2018 05:34'),(94,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438132085c04b8587a14f.jpg','15438132085c04b8587a14f.jpg','Foto de pacote de viagem',91774,'Pacotes','image/jpeg','03-12-2018 06:00'),(95,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438132085c04b858be08b.jpg','15438132085c04b858be08b.jpg','Foto de pacote de viagem',116090,'Pacotes','image/jpeg','03-12-2018 06:00'),(96,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438132095c04b8590b322.jpg','15438132095c04b8590b322.jpg','Foto de pacote de viagem',371136,'Pacotes','image/jpeg','03-12-2018 06:00'),(97,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438132095c04b85936d85.jpg','15438132095c04b85936d85.jpg','Foto de pacote de viagem',94592,'Pacotes','image/jpeg','03-12-2018 06:00'),(98,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438134165c04b928d062e.jpg','15438134165c04b928d062e.jpg','Foto de pacote de viagem',356150,'Pacotes','image/jpeg','03-12-2018 06:03'),(99,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438134175c04b92928c0a.jpg','15438134175c04b92928c0a.jpg','Foto de pacote de viagem',193194,'Pacotes','image/jpeg','03-12-2018 06:03'),(100,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438134175c04b92946bb0.jpg','15438134175c04b92946bb0.jpg','Foto de pacote de viagem',185469,'Pacotes','image/jpeg','03-12-2018 06:03'),(101,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438134175c04b9297ff11.jpg','15438134175c04b9297ff11.jpg','Foto de pacote de viagem',119403,'Pacotes','image/jpeg','03-12-2018 06:03'),(102,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438139035c04bb0fde3ac.jpg','15438139035c04bb0fde3ac.jpg','Foto de pacote de viagem',185469,'Pacotes','image/jpeg','03-12-2018 06:11'),(103,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438139045c04bb104949a.jpg','15438139045c04bb104949a.jpg','Foto de pacote de viagem',231368,'Pacotes','image/jpeg','03-12-2018 06:11'),(104,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438139045c04bb10673c1.jpg','15438139045c04bb10673c1.jpg','Foto de pacote de viagem',119403,'Pacotes','image/jpeg','03-12-2018 06:11'),(105,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438139045c04bb1085326.jpg','15438139045c04bb1085326.jpg','Foto de pacote de viagem',463873,'Pacotes','image/jpeg','03-12-2018 06:11'),(106,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438141545c04bc0a3dec4.jpg','15438141545c04bc0a3dec4.jpg','Foto de pacote de viagem',356150,'Pacotes','image/jpeg','03-12-2018 06:15'),(107,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438141545c04bc0a70937.jpg','15438141545c04bc0a70937.jpg','Foto de pacote de viagem',371136,'Pacotes','image/jpeg','03-12-2018 06:15'),(108,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438141545c04bc0a9d352.jpg','15438141545c04bc0a9d352.jpg','Foto de pacote de viagem',119403,'Pacotes','image/jpeg','03-12-2018 06:15'),(109,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438141545c04bc0adbd36.jpg','15438141545c04bc0adbd36.jpg','Foto de pacote de viagem',116090,'Pacotes','image/jpeg','03-12-2018 06:15'),(110,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438142445c04bc64cf334.jpg','15438142445c04bc64cf334.jpg','Foto de pacote de viagem',185469,'Pacotes','image/jpeg','03-12-2018 06:17'),(111,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438142455c04bc651c78a.jpg','15438142455c04bc651c78a.jpg','Foto de pacote de viagem',119403,'Pacotes','image/jpeg','03-12-2018 06:17'),(112,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438142455c04bc654d6e2.jpg','15438142455c04bc654d6e2.jpg','Foto de pacote de viagem',231368,'Pacotes','image/jpeg','03-12-2018 06:17'),(113,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438142455c04bc6563412.jpg','15438142455c04bc6563412.jpg','Foto de pacote de viagem',463873,'Pacotes','image/jpeg','03-12-2018 06:17'),(114,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438143125c04bca845319.jpg','15438143125c04bca845319.jpg','Foto de pacote de viagem',193194,'Pacotes','image/jpeg','03-12-2018 06:18'),(115,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438143125c04bca88ff30.jpg','15438143125c04bca88ff30.jpg','Foto de pacote de viagem',95468,'Pacotes','image/jpeg','03-12-2018 06:18'),(116,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438143125c04bca8e3107.jpg','15438143125c04bca8e3107.jpg','Foto de pacote de viagem',116090,'Pacotes','image/jpeg','03-12-2018 06:18'),(117,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438144475c04bd2f5dbaf.jpg','15438144475c04bd2f5dbaf.jpg','Foto de pacote de viagem',463873,'Pacotes','image/jpeg','03-12-2018 06:20'),(118,'/home/lucas/Desenvolvimento/WORSPACE/web/AgenciaTurismoPhpBootstrap/view/imagens/img_pacotes/15438144475c04bd2fa4893.jpg','15438144475c04bd2fa4893.jpg','Foto de pacote de viagem',231368,'Pacotes','image/jpeg','03-12-2018 06:20');
 /*!40000 ALTER TABLE `IMG` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +146,7 @@ CREATE TABLE `MSG` (
   KEY `fk_MSG_USR1_idx` (`codigoUsuario`),
   KEY `fk_MSG_PCT1_idx` (`codPacote`),
   CONSTRAINT `fk_MSG_USR` FOREIGN KEY (`codigoUsuario`) REFERENCES `USR` (`codigoUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,7 +155,7 @@ CREATE TABLE `MSG` (
 
 LOCK TABLES `MSG` WRITE;
 /*!40000 ALTER TABLE `MSG` DISABLE KEYS */;
-INSERT INTO `MSG` VALUES (2,NULL,'uygsaiduygasidu@gmail.com','alsjhasl',NULL,NULL,NULL);
+INSERT INTO `MSG` VALUES (2,NULL,'uygsaiduygasidu@gmail.com','alsjhasl',NULL,NULL,NULL),(3,NULL,'asdasd@gmail.com','Gostaria de saber por que isso é tao complicado! pdjaslkdjaslkdjaslkdjaslkdjaslkdjalskdjlaksdjlaksjdlkasjdlkajsdlkajsldkajsldkjalsdkjalskdjalskdjlaksdjlaksdjlaskdjlaksdjlaksdjlaksdjlaksjdlkasjda654a6s5d4a65sd46a5s4d6a5s4d6a54sd65as4d65a4sd654as6d54a6s5d46a5sd46a5s4d65as4d65as4d654asd23a1sd231asd654asd321asd32a1sda6s54d32a1sda65s4d3a2s1d32',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `MSG` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -181,7 +181,7 @@ CREATE TABLE `PAS` (
   KEY `PAS_CID_FK` (`codCidade`),
   CONSTRAINT `PAS_CID_FK` FOREIGN KEY (`codCidade`) REFERENCES `CID` (`codCidade`),
   CONSTRAINT `PAS_EST_FK` FOREIGN KEY (`codEstado`) REFERENCES `EST` (`codEstado`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +190,7 @@ CREATE TABLE `PAS` (
 
 LOCK TABLES `PAS` WRITE;
 /*!40000 ALTER TABLE `PAS` DISABLE KEYS */;
-INSERT INTO `PAS` VALUES (3,'Por do Sol Pipa','Por do Sol open Bar na praia de Pipa','Por do Sol',50,20,3728,'Ativo',''),(4,'Passeio de Barco Nisia Floresta','Passeio de Scuna em Nisia Floresta com duração de 4 horas','Scuna Nísia Floresta',150.7,20,3771,'Ativo',''),(5,'Praia do Cotovelo','Diaria na praia mais paradisiaca do RN','Praia Cotovelo',70,20,3685,'Inativo',''),(7,'Passeio de Jeep Pipa/Natal','Passeio com saída do centro de Pipa com Destino a Natal, o pesseio tem duração de 8h e retorna a Pipa no fim da tarde','Passeio de Jeep',350,20,3770,'Ativo',''),(8,'Nado com Tubarões','Nadar com Tubarões na praia de boa viagem','Nado tubarões',0,16,3315,'Ativo','27/11/2018 23:05'),(9,'Castelo de Brenand','Passeio no castelo ','Brenand',0,16,3315,'Ativo','27/11/2018 23:06'),(10,'Recife Antigo','Passeio fim de tarde no Recife Antigo','recife Antigo',0,16,3315,'Ativo','27/11/2018 23:07');
+INSERT INTO `PAS` VALUES (11,'Open Bar na barraca do Corno','Open Bar de 10h as 21h na Barraca mais famosa do pina','Open Bar',560.5,16,3315,'Ativo','03/12/2018 05:38'),(12,'Passeio no calçadão','Passeio de fim de tarde no calçadão do Pina','Calçadão',12,16,3315,'Ativo','03/12/2018 05:39'),(13,'Mergulho com os tubarões','Mergulho fora de série com tubarões famintos','ultimo mergulho',0.01,16,3315,'Ativo','03/12/2018 05:39'),(14,'Rodizio de caldinho','Rodizio no Pina','Rodizio',150,16,3315,'Ativo','03/12/2018 05:48'),(18,'Castelo Nacional Inn','Conheça um castelo','castelo',70,26,4816,'Ativo','03/12/2018 06:07'),(19,'Morro do Elefante ','Campos do Jordao','SP',30,26,4816,'Ativo','03/12/2018 06:08'),(20,'Tour Cervejaria Baden Baden','Tour de Cerveja','Tour',60,26,4816,'Ativo','03/12/2018 06:09'),(21,'Museu Felicia Leirner','Museu','museo',150,26,4816,'Ativo','03/12/2018 06:09');
 /*!40000 ALTER TABLE `PAS` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -238,7 +238,7 @@ CREATE TABLE `PCT` (
   CONSTRAINT `fk_PCT_FED2` FOREIGN KEY (`codPaisDestino`) REFERENCES `FED` (`codPais`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_PCT_UF1` FOREIGN KEY (`codEstadoOrigem`) REFERENCES `EST` (`codEstado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_PCT_UF2` FOREIGN KEY (`codEstadoDestino`) REFERENCES `EST` (`codEstado`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -247,7 +247,7 @@ CREATE TABLE `PCT` (
 
 LOCK TABLES `PCT` WRITE;
 /*!40000 ALTER TABLE `PCT` DISABLE KEYS */;
-INSERT INTO `PCT` VALUES (65,'Feriadão em Pipa','2018-12-10','2018-12-14',' Inicialmente era uma pacata vila de pescadores, \nbem calma, tranquila, até ser frequentada por \nsurfistas e logo em seguida turistas de todas \nas partes do planeta. É famosa por ter uma das \nnoites mais movimentadas do estado, possui grande \nnúmero de hotéis, pousadas, albergues, restaurantes,\nbares, discotecas e está sempre cheia, seja em \nalta ou baixa estação.\n\n  Pipa continua sendo um lugar que atrai muitos surfistas\nem função de suas ondas, e recentemente vem sendo\nprocurada também por praticantes de kitesurf, \ngraças a combinação de belas ondas e bons ventos. ',1500,'true',150.5,'true',200,'true',970,'true',7,NULL,6,756,NULL,20,3728,'Ativo','true','2018-11-27 01:18'),(66,'Recife PE','2018-12-25','2018-12-29','Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla BlaBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla BlaBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\n\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla BlaBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\n',500,'true',200,'true',150,'true',980.55,'true',5,NULL,16,3315,NULL,16,3315,'Ativo','true','2018-11-27 23:09'),(67,'Gramado','2019-01-08','2019-01-29','Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\n\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\n\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla\r\nBla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla',1500,'true',555,'false',0,'false',5666,'true',10,NULL,24,4414,NULL,23,4031,'Ativo','true','2018-11-27 23:11');
+INSERT INTO `PCT` VALUES (68,'Praia do Pina - PE','2019-01-15','2018-12-27','\r\n\r\nA Praia do Pina é uma praia popular do Recife, com longa faixa de \r\nareia, coqueiros na orla e mar verdinho, típico da região. É um \r\nlugar bastante frequentado por moradores da cidade, com \r\nquiosques e barracas, mas pode deixar a desejar em relação à \r\nsegurança. \r\n\r\nApesar de não ser a praia mais famosa do Recife, ela é uma \r\ncontinuação de Boa Viagem e pode ser uma boa opção para curtir \r\no mar num dia de sol. Uma das boas vantagens do Recife é que as\r\n águas do mar têm temperatura agradável e não causam aquele \r\nchoque térmico na hora do mergulho. \r\n\r\nAlém da segurança, outro ponto para ter atenção é quanto aos \r\ntubarões. No Recife ocorrem ataques de tubarões, por isso é \r\nimportante tomar alguns cuidados, como evitar o mergulho em \r\nhorários de maré alta,  evitar o mergulho se estiver com \r\nsangramentos, não usar objetos brilhantes ao entrar no mar e não \r\nse afastar muito da areia, entre outros. \r\n\r\n',1500,'true',150,'true',50,'true',3200,'true',10,NULL,24,4470,NULL,16,3315,'Ativo','true','2018-12-03 06:00'),(69,'Olinda - PE','2018-12-24','2018-12-27','Olinda é um município brasileiro do estado de Pernambuco, \r\nsituado na mesorregião Metropolitana do Recife e na Microrregião\r\n do Recife, Região Nordeste do país. Pertence à Região \r\nMetropolitana do Recife, distando sete quilômetros da capital \r\npernambucana.\r\n\r\nOlinda foi a urbe mais rica do Brasil Colônia entre o século XVI e\r\nas primeiras décadas do século XVII de acordo com escritores da \r\népoca como Pero de Magalhães Gândavo, chegando a ser referida\r\n como uma \"Lisboa pequena\", dada a opulência só comparável à \r\nda Corte portuguesa. Foi sede do Brasil colonial entre 1624 e 1625\r\n por ocasião da primeira das invasões neerlandesas: Matias de\r\n Albuquerque foi nomeado Governador-Geral, administrando a \r\ncolônia a partir de Olinda. A vila manteve-se próspera até a \r\ninvasão holandesa à Capitania de Pernambuco, quando os \r\nneerlandeses, após retirar os materiais nobres das edificações \r\npara construir suas casas na capital da Nova Holanda (Recife), \r\nincendiaram Olinda. Com o término da Insurreição Pernambucana, \r\nOlinda voltou a ser a sede da capitania, porém sem a influência de \r\noutrora, o que ocasionou conflitos como a Guerra dos Mascates. \r\nEm meados do século XIX, a cidade deixou de ser a capital de\r\n Pernambuco',700,'false',150,'true',20,'false',0,'true',3,NULL,6,756,NULL,16,3294,'Ativo','true','2018-12-03 06:03'),(70,'Campos do Jordão','2018-12-31','2019-01-07','Não é preciso frio para curtir Campos do Jordão. A região é bonita \r\nem qualquer estação. E por estar muito perto de São Paulo e de\r\n cidades do porte de São José dos Campos e Taubaté, Campos do \r\nJordão tem público mesmo fora de temporada -- garantindo que \r\natrações, restaurantes, bares e lojas funcionem o ano inteiro.\r\n',1350.75,'true',250,'true',150,'true',300,'true',10,NULL,26,5270,NULL,26,4816,'Ativo','true','2018-12-03 06:11'),(71,'Praia de Maragogi','2018-12-31','2019-01-21','Maragogi é um município da Microrregião do Litoral Norte  Alagoano, na Mesorregião do Leste Alagoano, no estado de  Alagoas, no Brasil. Localiza-se a 125 quilômetros de Maceió, a  capital do estado. Localiza-se na latitude sul e na longitude  oeste,  estando a uma altitude de 5 metros. Sua população estimada em  2011 era de 29 280 habitantes. A temperatura média é de 27 graus  Celsius. Sua economia é baseada no turismo, na pesca e na  agricultura. A beleza de suas praias faz com que seja um dos mais  importantes polos turísticos da região.  ',600,'true',110,'true',300,'true',422,'true',5,NULL,16,3315,NULL,2,150,'Ativo','true','2018-12-03 06:15'),(72,'Cachoeiras de Bonito','2019-01-07','2019-01-14','Cachoeiras de bonito\r\n\r\n',600,'true',50,'true',10,'false',0,'true',2,NULL,1,81,NULL,16,3207,'Ativo','true','2018-12-03 06:17'),(73,'Deserto do Ouriço','2018-12-24','2018-12-25','Deserto do Ouriço',200,'false',0,'false',0,'false',0,'true',3,NULL,16,3294,NULL,14,2418,'Ativo','true','2018-12-03 06:18'),(74,'Tracunhaem cidade do Barro','2019-01-07','2019-01-09','Maravilha de Lugar',300,'true',1,'true',1,'true',22,'true',1,NULL,1,79,NULL,16,3356,'Ativo','true','2018-12-03 06:20');
 /*!40000 ALTER TABLE `PCT` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -259,7 +259,7 @@ DROP TABLE IF EXISTS `PED`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `PED` (
-  `codPedido` int(11) NOT NULL,
+  `codPedido` int(11) NOT NULL AUTO_INCREMENT,
   `codigoUsuario` int(11) NOT NULL,
   `codPacote` int(11) NOT NULL,
   `dataInicio` varchar(45) NOT NULL,
@@ -273,11 +273,12 @@ CREATE TABLE `PED` (
   `valorAereo` float DEFAULT NULL,
   `status` varchar(45) DEFAULT NULL,
   `dataHoraCadastro` varchar(45) NOT NULL,
+  `valorTotal` float DEFAULT NULL,
   PRIMARY KEY (`codPedido`),
   KEY `fk_PED_USR1_idx` (`codigoUsuario`),
   KEY `fk_PED_PCT1_idx` (`codPacote`),
   CONSTRAINT `fk_PED_USR1` FOREIGN KEY (`codigoUsuario`) REFERENCES `USR` (`codigoUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -286,6 +287,7 @@ CREATE TABLE `PED` (
 
 LOCK TABLES `PED` WRITE;
 /*!40000 ALTER TABLE `PED` DISABLE KEYS */;
+INSERT INTO `PED` VALUES (8,19,69,'2018-12-24','2018-12-27','true',2,20,'false',150,'false',0,'Solicitado','2018/12/03 06:22',720),(9,19,68,'2019-01-15','2018-12-27','true',10,50,'true',150,'true',3200,'Solicitado','2018/12/03 06:22',7600),(10,19,73,'2018-12-24','2018-12-25','false',3,0,'false',0,'false',0,'Solicitado','2018/12/03 06:22',200),(11,19,74,'2019-01-07','14/02/2019','true',1,1,'true',1,'true',22,'Solicitado','2018/12/03 06:22',18226);
 /*!40000 ALTER TABLE `PED` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -336,7 +338,7 @@ CREATE TABLE `RPI` (
 
 LOCK TABLES `RPI` WRITE;
 /*!40000 ALTER TABLE `RPI` DISABLE KEYS */;
-INSERT INTO `RPI` VALUES (65,67),(65,68),(65,69),(65,70),(66,71),(66,72),(66,73),(66,74),(67,75),(67,76),(67,77),(67,78);
+INSERT INTO `RPI` VALUES (68,94),(68,95),(68,96),(68,97),(69,98),(69,99),(69,100),(69,101),(70,102),(70,103),(70,104),(70,105),(71,106),(71,107),(71,108),(71,109),(72,110),(72,111),(72,112),(72,113),(73,114),(73,115),(73,116),(74,117),(74,118);
 /*!40000 ALTER TABLE `RPI` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -363,7 +365,7 @@ CREATE TABLE `RPP` (
 
 LOCK TABLES `RPP` WRITE;
 /*!40000 ALTER TABLE `RPP` DISABLE KEYS */;
-INSERT INTO `RPP` VALUES (3,65),(3,67),(4,65),(5,65),(7,65),(8,66),(8,67),(9,66),(10,66);
+INSERT INTO `RPP` VALUES (11,68),(11,71),(12,68),(12,69),(12,71),(13,68),(13,71),(14,68),(14,71),(14,73),(18,70),(18,72),(19,70),(19,72),(19,74),(20,70),(20,72),(21,70);
 /*!40000 ALTER TABLE `RPP` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -380,8 +382,7 @@ CREATE TABLE `RPPED` (
   PRIMARY KEY (`PAS_codPasseio`,`PED_codPedido`),
   KEY `fk_PAS_has_PED_PAS1_idx` (`PAS_codPasseio`),
   KEY `fk_PAS_has_PED_PED_idx` (`PED_codPedido`),
-  CONSTRAINT `fk_PAS_has_PED_PAS` FOREIGN KEY (`PAS_codPasseio`) REFERENCES `PAS` (`codPasseio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_PAS_has_PED_PED` FOREIGN KEY (`PED_codPedido`) REFERENCES `PED` (`codPedido`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_PAS_has_PED_PAS` FOREIGN KEY (`PAS_codPasseio`) REFERENCES `PAS` (`codPasseio`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -439,7 +440,7 @@ CREATE TABLE `USR` (
 
 LOCK TABLES `USR` WRITE;
 /*!40000 ALTER TABLE `USR` DISABLE KEYS */;
-INSERT INTO `USR` VALUES (16,'Lucas','Benjamin','05/04/1986','lc.benjamin@gmail.com','827ccb0eea8a706c4c34a16891f84e7b','059.407.844-02','(81)98326-9077','Ativo','Rua Numa Pompilho, 175 Santo Amaro','50.100-330',2,3315,16,64,'27/11/2018 01:07'),(17,'Bruna','Canuto','26/11/2018','bandrade@gmail.com','827ccb0eea8a706c4c34a16891f84e7b','057.399.254-10','(81)3326-8131','Ativo','Rua Visconde de Mamanguape, 40 - Encruzilhada','50.300-155',1,3315,16,65,'27/11/2018 01:09'),(18,'Ryan','Gosling','23/02/1954','ryan@gmail.com','827ccb0eea8a706c4c34a16891f84e7b','588.954.694-53','(81)98326-9077','Inativo','Rua Numa Pompilho, 175 Santo Amaro','50.100-330',1,3294,16,80,'27/11/2018 01:13'),(19,'Jedson','Moura','27/05/1993','jedson@gmail.com','827ccb0eea8a706c4c34a16891f84e7b','093.874.674-06','(81)99999-9999','Ativo','Rua sei la','52.222-222',2,3183,16,79,'27/11/2018 23:23');
+INSERT INTO `USR` VALUES (19,'Lucas','Benjamin','05/04/1986','lc.benjamin@gmail.com','827ccb0eea8a706c4c34a16891f84e7b','059.407.844-02','(81)98326-9077','Ativo','Rua Numa Pompilho, 175 Santo Amaro','50.100-330',2,3315,16,93,'2018/12/03 05:34');
 /*!40000 ALTER TABLE `USR` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -456,4 +457,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-28 16:05:14
+-- Dump completed on 2018-12-03  2:23:48

@@ -64,8 +64,24 @@ function validaInclusaoPasseio(){
 	if(isset($_POST['passeio'])){
 		
 		$passeio = $_POST['passeio'];
+		
+		$passeio['valor'] =  stringParaFloat($passeio['valor']);
+		
 		$passeioValido = true;
 		$passeio['dataHoraCadastro'] = $date = date('d/m/Y H:i');
 		salva_passeio($passeio);
 	}
-}	
+}
+
+/** Converte o valor informado para float */
+function stringParaFloat($valor){
+
+    if(!empty($valor)){
+        /** Remove simbolo moeda */
+        $valorTratado = str_replace("R$ ","",$valor);
+
+        /** Convertendo valor */
+        $valorTratado = (float) str_replace(',', '.', str_replace('.', '', $valorTratado));
+        return $valorTratado;        
+    }
+}
