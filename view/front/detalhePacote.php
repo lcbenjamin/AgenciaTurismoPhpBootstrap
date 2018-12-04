@@ -187,6 +187,13 @@
                 if($pacoteSelecionado['pacote']['aereo']  == "true"){
                     echo ' <i title="Passagem Aérea" class="fa fa-plane mx-4 fa-2x"></i>';
                 }
+                if( ($pacoteSelecionado['pacote']['traslado'] == "false") &&
+                    ($pacoteSelecionado['pacote']['hospedagem']  == "false") &&
+                    ($pacoteSelecionado['pacote']['aereo']  == "false")){
+                    
+                        echo '<i title="Passagem Aérea" class="fa fa-ban mx-4 fa-2x"></i>' ;
+                    
+                }
 
             ?>
         </center>
@@ -342,7 +349,7 @@
         <div class="form-group col-md-13 mt-3">
             <div class="form-group">
             <label for="comment">Escreva sua mensagem:</label>
-            <textarea class="form-control" rows="5" id="comment"></textarea>
+            <textarea class="form-control" rows="5" id="comment" placeholder="Te responderemos o mais breve possível"></textarea>
             </div> 
         </div>
           <!-- Botões -->
