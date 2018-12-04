@@ -49,7 +49,7 @@
       <input type="password" id="inputPassword" class="form-control" placeholder="Senha" name="login[senha]" required>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       <div class="mt-3 text-center">
-        <a href="#" target="_self" >Ainda não sou cadastrado</a>
+        <a href="cadastroUsuario.php" target="_self" >Ainda não sou cadastrado</a>
         </div>
       <p class="mt-5 mb-3 text-muted">&copy; 2018-2018</p>
     </form>

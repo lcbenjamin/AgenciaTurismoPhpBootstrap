@@ -444,3 +444,77 @@ function validaFotoPerfil(){
 
 	return true;
 }
+
+/**
+ *	Valida a inclusão de um novo Usuário
+ */
+function validaCadastroNovoUsuario(){
+
+	if(isset($_POST['usuario'])){
+		
+		$usuario = $_POST['usuario'];
+		$usuarioValido = true;
+
+		/** Valida Primeiro nome */
+		if(validaPrimeiroNome($usuario['primeiroNome'])){
+			/** Valida Sobrenome nome */
+			if(validaSobrenome($usuario['ultimoNome'])){
+				/** Valida CPF*/
+				if(validaCPF($usuario['cpf'])){
+					/** Valida Data Nascimento*/
+					if(validaDataNascimento($usuario['dataNascimento'])){
+						/** Valida Endereço*/
+						if(validaEndereco($usuario['endereco'])){
+							/** Valida CEP*/
+							if(validaCEP($usuario['cep'])){
+								/** Valida email*/
+								if(validaEmail($usuario['email'])){
+									/** Valida senha*/
+									if(validaSenha($usuario['senha'])){
+										/** Aplica MD5 a senha antes de salvar */
+										$usuario['senha'] = md5($usuario['senha']);
+										/** Valida a foto do Perfil */
+										if(validaFotoPerfil()){
+
+										} else {$usuarioValido = false;}
+									} else {$usuarioValido = false;}
+								} else {$usuarioValido = false;}									
+							}	else {$usuarioValido = false;}
+						}	else {$usuarioValido = false;}
+					}	else {$usuarioValido = false;}
+				}	else {$usuarioValido = false;}
+			}	else {$usuarioValido = false;}
+		} else {$usuarioValido = false;}
+
+		
+		/** Caso todos os criterios de validação sejam aceitos ele salva o usuário */
+		if($usuarioValido){
+
+			$descricao = "Foto do usuário " . $usuario['primeiroNome'] . " ". $usuario['ultimoNome'];
+			$id_imagem = salvaFotoPerfil($descricao);
+		
+			/** Caso a foto não tenha sido salva gera um erro */
+			if($id_imagem != null){
+				/** Atribui foto salva ao ID do usuário */
+				$usuario['codImagem'] = $id_imagem;
+
+				/** Adiciona a data e hora do cadastro e salva Usuário */
+				$usuario['dataHoraCadastro'] = date('Y/m/d H:i');
+				$idUsuario = saveReturnID('USR', $usuario);
+
+				/** Captura no banco o usuário salvo */
+				$usuarioSalvo = find('USR', 'codigoUsuario', $idUsuario, false);
+
+				/** Inicia seção */
+				session_start();
+
+				/** Salva usuário na seção */
+				$_SESSION['logado'] = $usuarioSalvo; 
+
+				/** Redireciona para pagina inicial */
+				header('Location: ../../view/front/index.php');
+			}
+		}
+
+	}
+}

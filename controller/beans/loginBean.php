@@ -6,7 +6,7 @@ require_once(DBAPI);
 require_once('usuarioBean.php');
 
 /**
- *	Valida a inclusão de um novo Usuário
+ *	Valida a login
  */
 
 function validaLogin(){
@@ -43,9 +43,5 @@ function validaLogin(){
             $_SESSION['message'] = 'Usuário não cadastrado'; 
             $_SESSION['type'] = 'danger';
         }
-
-
-    
-		
     }
 }
