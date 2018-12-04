@@ -24,12 +24,15 @@ if (!isset($_SESSION['carrinho'])) {
 
 $carrinho = $_SESSION['carrinho'];
 
+
 /** Verifica se as variáveis vieram via POST, se for adiciona um novo item ao carrinho */
 if (isset($_POST['pedidoPersonalizado'])) {
 
     /** Se carrinho estiver vazio, adiciona item */
     if(empty($carrinho)){
         $carrinho[$_POST['pedidoPersonalizado']['codPacote']] = trataSolicitacaoPedidoPersonalizado();
+        $_SESSION['message'] = 'Pacote incluído com sucesso no carrinho.';
+        $_SESSION['type'] = 'success';  
     } 
     /** Se carrinho não estiver vazio, verifica se item já esta incluido */
     else {
@@ -38,6 +41,8 @@ if (isset($_POST['pedidoPersonalizado'])) {
         $itemNovo = true;
         foreach($carrinho as $item => $valor){
             if($valor['codPacote'] == $_POST['pedidoPersonalizado']['codPacote']){
+                $_SESSION['message'] = 'Pacote já incluído no carrinho'; 
+                $_SESSION['type'] = 'danger';
                 $itemNovo = false;
             }
         }
@@ -45,6 +50,8 @@ if (isset($_POST['pedidoPersonalizado'])) {
         /** se for novo adiciona no carrinho */
         if($itemNovo){
             $carrinho[$_POST['pedidoPersonalizado']['codPacote']] = trataSolicitacaoPedidoPersonalizado();
+            $_SESSION['message'] = 'Pacote incluído com sucesso no carrinho.';
+            $_SESSION['type'] = 'success';  
         }
 
     }
@@ -70,8 +77,6 @@ if(isset($_GET['idExcluir'])){
 
  if(isset($_GET['confirma']) && isset($_SESSION['carrinho'])){
 
-        
-    echo "Aquiiii";
 
     $confirmado = 0;
     
@@ -195,7 +200,8 @@ function validaDataInicio($pacotePersonalizado,$pacotePadrao){
 
     /** Verifica qual data usar */
     if(!empty($pacotePersonalizado['dataInicio'])){
-        $dataInicio = $pacotePersonalizado['dataInicio'];
+        $data = str_replace("/", "-", $pacotePersonalizado['dataInicio']);
+        $dataInicio = date('Y-m-d', strtotime($data));;
     } else{
         $dataInicio = $pacotePadrao['pacote']['dataInicio'];
     }
@@ -209,7 +215,8 @@ function validaDataFim($pacotePersonalizado,$pacotePadrao){
 
     /** Verifica qual data usar */
     if(!empty($pacotePersonalizado['dataFim'])){
-        $dataFim = $pacotePersonalizado['dataFim'];
+        $data = str_replace("/", "-", $pacotePersonalizado['dataFim']);
+        $dataFim = date('Y-m-d', strtotime($data));;
     } else{
         $dataFim = $pacotePadrao['pacote']['dataFim'];
     }
@@ -267,21 +274,21 @@ function validaValor($pacotePersonalizado,$pacotePadrao){
     $valorBase =        floatval($pacotePadrao['pacote']['valorBase']) ;
 
     /** Valor da diaria de hospedagem multiplicado pelas diarias do pacote */
-    if(!empty($pacotePersonalizado['hospedagem'])){
+    if(validaHospedagem($pacotePersonalizado) == "true"){
         $valorHospedagem =  floatval($pacotePadrao['pacote']['valorHospedagem']) * $diarias  ;    
     } else {
         $valorHospedagem =  floatval(0) ;
     }
 
     /** Valor do Traslado */
-    if(!empty($pacotePersonalizado['traslado'])){
+    if(validaTraslado($pacotePersonalizado) == "true"){
         $valorTraslado =    floatval($pacotePadrao['pacote']['valorTraslado']);
     } else {
         $valorTraslado =  floatval(0) ;
     }
 
     /** Valor aereo */
-    if(!empty($pacotePersonalizado['aereo'])){
+    if( validaAereo($pacotePersonalizado) == "true"){
         $valorAereo =    floatval($pacotePadrao['pacote']['valorAereo']);
     } else {
         $valorAereo =  floatval(0) ;

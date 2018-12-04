@@ -46,7 +46,7 @@
                         ?>
                     </p>                    
                     <div class="card-body text-right">
-                        <a href="./index.php?p=detalhePacote&id=<?php echo $pacote['codPacote'];?>" class="btn btn-secondary">Eu quero!</a>
+                        <a href="./index.php?p=detalhePacote&id=<?php echo $pacote['codPacote'];?>#ancora" class="btn btn-secondary">Eu quero!</a>
                     </div>
                 </div>
             </div>

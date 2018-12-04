@@ -4,6 +4,7 @@
     require_once DBAPI;
     require_once('../../controller/beans/pacotesBean.php');
     require_once('../../controller/beans/estadoBean.php');
+    require_once('../../controller/beans/cidadeBean.php');
 
     require_once('../../controller/verificaLogado.php');
     
@@ -14,6 +15,7 @@
     }
 
 ?>
+<div id="ancora"></div>
 <form action="./index.php?p=carrinho" method="post">
 <div class="row">
     <!-- Coluna esquerda -->
@@ -70,6 +72,23 @@
         <!-- Descrição -->
         <p><?php echo $pacoteSelecionado['pacote']['descricao'];?></p>
         
+        <!-- Destino -->
+        <p>
+            Com destino a cidade de <b>
+            <?php   echo carrega_cidade_id($pacoteSelecionado['pacote']['codCidadeDestino'])['nome'] . " / " .
+                    carrega_estado_id($pacoteSelecionado['pacote']['codEstadoDestino'])['uf']; ?>
+            </b>
+        </p>
+
+        <!-- Destino -->
+        <p>
+            Saindo opcionalmente da cidade de <b>
+            <?php   echo carrega_cidade_id($pacoteSelecionado['pacote']['codCidadeOrigem'])['nome'] . " / " .
+                    carrega_estado_id($pacoteSelecionado['pacote']['codEstadoOrigem'])['uf']; ?>
+            </b>
+        </p>
+
+
         <!-- Passeios -->
         <p> 
             <b>Passeios incluidos </b><br>
@@ -90,7 +109,7 @@
             <?php endif;?>
         </p>
 
-        <!-- Traslao -->
+        <!-- Traslado -->
         <p> 
             <?php if($pacoteSelecionado['pacote']['traslado'] == "true"):?>
                 <b>Traslado</b><br>
@@ -104,8 +123,13 @@
         <p> 
             <?php if($pacoteSelecionado['pacote']['traslado'] == "true" ):?>
                 <b>Transporte Aéreo</b><br>
-                Parece mágica, mas por um valor fixo você vai te avião até o seu destino!
+                Em um voô saindo de 
+                
+                <?php   echo carrega_cidade_id($pacoteSelecionado['pacote']['codCidadeOrigem'])['nome'] . " / " .
+                             carrega_estado_id($pacoteSelecionado['pacote']['codEstadoOrigem'])['uf']; ?>
+                
                 por apenas R$ <?php echo number_format($pacoteSelecionado['pacote']['valorAereo'], 2, ',', '.'); ?> 
+                comprando seu pacote com 15 dias de antecedência
             <?php endif;?>
         </p>
         
@@ -146,6 +170,7 @@
         </div>
         
         <!-- Serviços inclusos ----------------------------------->
+        
         <h5 class="mt-3">
             <i class="fa fa-check"></i>  O que o pacote inclui
         </h5>
@@ -154,20 +179,22 @@
         <center>
             <?php
                 if($pacoteSelecionado['pacote']['traslado'] == "true"){
-                    echo '<i title="Traslado" class="fa fa-bus mx-4 fa-3x"></i>';
+                    echo '<i title="Traslado" class="fa fa-bus mx-4 fa-2x"></i>';
                 }
                 if($pacoteSelecionado['pacote']['hospedagem']  == "true"){
-                    echo '<i title="Hospedagem" class="fa fa-hotel mx-4 fa-3x"></i>';
+                    echo '<i title="Hospedagem" class="fa fa-hotel mx-4 fa-2x"></i>';
                 }
                 if($pacoteSelecionado['pacote']['aereo']  == "true"){
-                    echo ' <i title="Passagens AéreaAéreo" class="fa fa-plane mx-4 fa-3x"></i>';
+                    echo ' <i title="Passagem Aérea" class="fa fa-plane mx-4 fa-2x"></i>';
                 }
 
             ?>
         </center>
 
+
+
         <!-- Personalização de pacote ----------------------------------->
-        <h5 class="bg-dark text-light py-2 pl-2 mt-3">
+        <h5 class="bg-dark text-light py-2 pl-2 my-4">
         <i class="fa fa-cogs fa-1x"></i>
             Personalise seu pacote
         </h5>
@@ -179,7 +206,7 @@
             <div class="form-group col-md-6">
                 <label for="dataIda"><b>Data Ida *</b></label>
                 <div class="input-group">
-                    <input type="text" class="form-control dataFormatada"  name="pedidoPersonalizado[dataInicio]" placeholder="<?php echo $pacoteSelecionado['pacote']['dataInicio'];?>" aria-describedby="basic-addon2" id="dataIda" maxlength="10">
+                    <input type="text" class="form-control dataFormatada"  name="pedidoPersonalizado[dataInicio]" placeholder="<?php echo date('d/m/Y', strtotime($pacoteSelecionado['pacote']['dataInicio']));?>" aria-describedby="basic-addon2" id="dataIda" maxlength="10">
                     <div class="input-group-append">
                     <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar"></i></span>
                     </div>
@@ -190,7 +217,7 @@
             <div class="form-group col-md-6">
                 <label for="dataVolta"><b>Data Volta *</b></label>
                 <div class="input-group">
-                    <input type="text" class="form-control dataFormatada"  name="pedidoPersonalizado[dataFim]" placeholder="<?php echo $pacoteSelecionado['pacote']['dataFim'];?>" aria-describedby="basic-addon2" id="dataVolta" maxlength="10">
+                    <input type="text" class="form-control dataFormatada"  name="pedidoPersonalizado[dataFim]" placeholder="<?php echo date('d/m/Y', strtotime($pacoteSelecionado['pacote']['dataFim']));?>" aria-describedby="basic-addon2" id="dataVolta" maxlength="10">
                     <div class="input-group-append">
                     <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar"></i></span>
                     </div>
@@ -214,58 +241,93 @@
             <? endif;?>
 
             <!-- Traslado ----------------------------->
-            <div class="form-group col-md-12">
-                <label for="traslado"><b>Traslado</b></label>
-                <div class="input-group col-mb-3">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
-                    <?php if($pacoteSelecionado['pacote']['traslado']  == "true") : ?>  
-                        <input  type="checkbox" value="true" name="pedidoPersonalizado[traslado]" checked>
-                    <? else :?>
-                        <input  type="checkbox" value="true" name="pedidoPersonalizado[traslado]" >
-                    <? endif;?>
+            <?php if($pacoteSelecionado['pacote']['traslado']  == "true") : ?>  
+                <div class="form-group col-md-12">
+                    <label for="traslado"><b>Traslado</b></label>
+                    <div class="input-group col-mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">        
+                                <input  type="checkbox" value="true" name="pedidoPersonalizado[traslado]" checked>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" style="background-color: #ffffff;"  
+                               placeholder="Custo adicional do serviço<?php echo " R$ " . number_format($pacoteSelecionado['pacote']['valorTraslado'], 2, ',', '.'); ?>" disabled>
                     </div>
                 </div>
-                <input type="text" class="form-control" style="background-color: #ffffff;"  placeholder="Deseja incluir traslado?" disabled>
+            <? else :?>
+                <div class="form-group col-md-12">
+                    <label for="traslado"><b>Traslado</b></label>
+                    <div class="input-group col-mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">        
+                                <input  type="checkbox" value="true" name="pedidoPersonalizado[traslado]">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" style="background-color: #ffffff;"  
+                               placeholder="Incluir serviço por<?php echo " R$ " . number_format($pacoteSelecionado['pacote']['valorTraslado'], 2, ',', '.'); ?>" disabled>
+                    </div>
                 </div>
-            </div>
-            
+            <? endif;?>    
+
             <!-- Hospedagem ----------------------------->
-            <div class="form-group col-md-12">
-                <label for="hospedagem"><b>Hospedagem</b></label>
-                <div class="input-group col-mb-3">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
-                    <?php if($pacoteSelecionado['pacote']['hospedagem'] == "true") : ?>  
-                        <input  type="checkbox" value="true" name="pedidoPersonalizado[hospedagem]" checked>
-                    <? else :?>
-                        <input  type="checkbox" value="true" name="pedidoPersonalizado[hospedagem]" >
-                    <? endif;?>
+            <?php if($pacoteSelecionado['pacote']['hospedagem']  == "true") : ?>  
+                <div class="form-group col-md-12">
+                    <label for="traslado"><b>Hospedagem</b></label>
+                    <div class="input-group col-mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">        
+                                <input  type="checkbox" value="true" name="pedidoPersonalizado[hospedagem]" checked>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" style="background-color: #ffffff;"  
+                               placeholder="Custo adicional do serviço<?php echo " R$ " . number_format($pacoteSelecionado['pacote']['valorHospedagem'], 2, ',', '.'); ?>" disabled>
                     </div>
                 </div>
-                <input type="text" class="form-control" style="background-color: #ffffff;"  placeholder="Deseja incluir hospedagem?" disabled>
+            <? else :?>
+                <div class="form-group col-md-12">
+                    <label for="traslado"><b>Hospedagem</b></label>
+                    <div class="input-group col-mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">        
+                                <input  type="checkbox" value="true" name="pedidoPersonalizado[hospedagem]">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" style="background-color: #ffffff;"  
+                               placeholder="Incluir serviço por<?php echo " R$ " . number_format($pacoteSelecionado['pacote']['valorHospedagem'], 2, ',', '.'); ?>" disabled>
+                    </div>
                 </div>
-            </div>
+            <? endif;?>    
 
             <!-- Transporte Arérop ----------------------------->
-            <div class="form-group col-md-12">
-                <label for="aereo"><b>Transporte Aéreo</b></label>
-                <div class="input-group col-mb-3">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
-                    <?php if($pacoteSelecionado['pacote']['aereo']  == "true") : ?>  
-                        <input  type="checkbox" value="true" name="pedidoPersonalizado[aereo]" checked>
-                    <? else :?>
-                        <input  type="checkbox" value="true" name="pedidoPersonalizado[aereo]" >
-                    <? endif;?>
+            <?php if($pacoteSelecionado['pacote']['aereo']  == "true") : ?>  
+                <div class="form-group col-md-12">
+                    <label for="traslado"><b>Transporte Aéreo</b></label>
+                    <div class="input-group col-mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">        
+                                <input  type="checkbox" value="true" name="pedidoPersonalizado[aereo]" checked>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" style="background-color: #ffffff;"  
+                               placeholder="Custo adicional do serviço<?php echo " R$ " . number_format($pacoteSelecionado['pacote']['valorAereo'], 2, ',', '.'); ?>" disabled>
                     </div>
                 </div>
-                <input type="text" class="form-control" style="background-color: #ffffff;"  placeholder="Deseja incluir transporte aéreo?" disabled>
+            <? else :?>
+                <div class="form-group col-md-12">
+                    <label for="traslado"><b>Transporte Aéreo</b></label>
+                    <div class="input-group col-mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">        
+                                <input  type="checkbox" value="true" name="pedidoPersonalizado[aereo]">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" style="background-color: #ffffff;"  
+                               placeholder="Incluir serviço por<?php echo " R$ " . number_format($pacoteSelecionado['pacote']['valorAereo'], 2, ',', '.'); ?>" disabled>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group col-md-12 text-right">
-                
-            </div>
+            <? endif;?>  
+
+
         </div>
     </form>
 
@@ -277,7 +339,7 @@
         &nbspFicou com duvida sobre esse pacote?<br>&nbsp&nbsp&nbsp&nbsp A gente te ajuda
     </h6>
     <form>
-        <div class="form-group col-md-13">
+        <div class="form-group col-md-13 mt-3">
             <div class="form-group">
             <label for="comment">Escreva sua mensagem:</label>
             <textarea class="form-control" rows="5" id="comment"></textarea>
