@@ -24,7 +24,8 @@
 <?php if (!empty($_SESSION['message'])) : ?>
 	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		<?php echo $_SESSION['message']; ?>
+    <?php echo $_SESSION['message']; ?>
+    <?php unset($_SESSION['message']); ?>
 	</div>
 <?php endif; ?>
 
