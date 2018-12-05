@@ -73,6 +73,43 @@ function deleta_usuario() {
 }
 
 /**
+ *  Exclusão de um Cliente
+ */
+function alterarSenha(){
+	if(isset($_GET['alteraSenha'])){
+
+		$senhaAtual 		=  md5( $_POST['senha']['atual'] );
+		$senhaNova 			=  md5( $_POST['senha']['nova']);
+		$senhaNovaConfirma 	=  md5( $_POST['senha']['confirma']);
+		$usuario = carregaUsuarioPorId($_SESSION['logado']['codigoUsuario']);
+		$id = $usuario['codigoUsuario'];
+		$senhaCadastrada = $usuario['senha'];
+
+		if( strcmp($senhaAtual, $senhaCadastrada) == 0){
+
+			if(strcmp($senhaNova, $senhaNovaConfirma) == 0){
+
+				$usuario['senha'] = $senhaNova;
+				update('USR','codigoUsuario',$id, $usuario);
+
+				$_SESSION['message'] = 'Senha alterada com sucesso.';
+				$_SESSION['type'] = 'success';
+
+			} else {
+				$_SESSION['message'] = 'As senhas informadas não são iguais. Repita a operação'; 
+				$_SESSION['type'] = 'danger';
+			}
+
+
+		} else {
+			$_SESSION['message'] = 'A senha atual está incorreta'; 
+			$_SESSION['type'] = 'danger';
+		}
+
+	}
+}
+
+/**
  *	Valida a inclusão de um novo Usuário
  */
 function validaInclusaoUsuario(){

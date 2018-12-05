@@ -25,6 +25,7 @@
 	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		<?php echo $_SESSION['message']; ?>
+        <?php unset($_SESSION['message']); ?>
 	</div>
 <?php endif; ?>
 
@@ -35,7 +36,7 @@
         <div class="panel panel-primary filterable">
             <div class="panel-heading">
                 <div class="pull-right mb-3">
-                    <a class="btn btn-info" href="./painelAdm.php?adm=pedidosMnt"><i class="fa fa-refresh"></i> Atualizar</a>
+                    <a class="btn btn-info" href="./painelUsr.php?adm=meusPedidos"><i class="fa fa-refresh"></i> Atualizar</a>
                     <button class="btn btn-warning btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filtrar </button>
                 </div>
             </div>
@@ -63,12 +64,10 @@
                             <td class="align-middle"><?php echo "R$ " . number_format($pedido['valorTotal'], 2, ',', '.'); ?></td>
                             <td class="align-middle"><?php echo $pedido['status']; ?></td>
                             <td class="align-middle">
-                                <a href="./painelAdm.php?adm=pedidosMntDetalhe&id=<?php echo $pedido['codPedido']; ?>" class="btn btn-sm btn-success">
+                                <a href="./painelUsr.php?adm=meusPedidosDetalhe&id=<?php echo $pedido['codPedido']; ?>" class="btn btn-sm btn-success">
                                     <i class="fa fa-eye"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-warning"  data-toggle="modal" data-target="#confirma-modal-pedido" onclick="confirmaPedido('<?php echo $pedido['codPedido']; ?>')">
-                                <i class="fa fa-check-square"></i>
-                                </a>
+
                                 <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#cancela-modal-pedido"  onclick="cancelaPedido('<?php echo $pedido['codPedido']; ?>')">
                                     <i class="fa fa-trash"></i> 
                                 </a>    
@@ -102,14 +101,8 @@
 <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
 <script>
-	function confirmaPedido(valor) {
-		document.getElementById('confirmaPedido').setAttribute('href', 'painelAdm.php?adm=pedidosMnt&confirmaPedido='+ valor);
-	}
-</script>
-
-<script>
 	function cancelaPedido(valor) {
-		document.getElementById('cancelaPedido').setAttribute('href', 'painelAdm.php?adm=pedidosMnt&cancelaPedido='+ valor);
+		document.getElementById('cancelaPedido').setAttribute('href', 'painelUsr.php?adm=meusPedidos&cancelaPedido='+ valor);
 	}
 </script>
 

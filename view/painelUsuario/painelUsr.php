@@ -83,21 +83,17 @@ if(isset($_SESSION['logado'])){
 			=====================-->
 			<div class="col-md-3 col-xs-1 p-l-0 p-r-0 in menu-lateral" id="sidebar">
 				<div class="list-group panel">
-					<!-- Menu OverView-->
+					<!-- Foto Usuário-->
 					<a href="#" class="list-group-item collapsed" data-parent="#sidebar">
 							<img class="media-object" src="../imagens/img_usuarios/<?php echo carrega_caminho_imagem($usuarioLogado['codImagem'])['nome'];?>" id="img_usuario_detalhe">
 							<span class="ml-2"><?php echo $usuarioLogado['primeiroNome'];?></span>
 					</a>
-					<!-- Menu OverView-->
-					<a href="./painelUsr.php?adm=overview" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-list"></i> <span class="hidden-sm-down">Overview</span></a>
 					<!-- Menu Meus pedidos-->
 					<a href="./painelUsr.php?adm=meusPedidos" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-clipboard"></i></i> <span class="hidden-sm-down">Meus Pedidos</span></a>
 					<!-- Menu Editar Cadastro-->
 					<a href="./painelUsr.php?adm=cadastroAlterar" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-users"></i> <span class="hidden-sm-down">Atualiza Cadastro</span></a>
 					<!-- Menu Alterar Senha-->
 					<a href="./painelUsr.php?adm=senhaAlterar" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-key"></i> <span class="hidden-sm-down">Alterar Senha</span></a>
-					<!-- Menu Excluir Perfil-->
-					<a href="./painelUsr.php?adm=cadastroExcluir" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-trash"></i> <span class="hidden-sm-down">Excluir Perfil</span></a>
 					<!-- Menu Caixa de entrada-->
 					<a href="./painelUsr.php?adm=caixaEntrada" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-comments"></i> <span class="hidden-sm-down">Caixa de entrada</span></a>
 				</div>
@@ -111,13 +107,12 @@ if(isset($_SESSION['logado'])){
 						<?php
 							$paginaSelecionada = @$_GET['adm'];
 
-							if($paginaSelecionada == null){require_once 'overview.php';}
+							if($paginaSelecionada == null){require_once 'meusPedidos.php';}
 							if($paginaSelecionada == "home"){require_once '../front/index.php';}
-							if($paginaSelecionada == "overview"){require_once 'overview.php';}
 							if($paginaSelecionada == "meusPedidos"){require_once 'meusPedidos.php';}
+							if($paginaSelecionada == "meusPedidosDetalhe"){require_once 'meusPedidosDetalhe.php';}
 							if($paginaSelecionada == "cadastroAlterar"){require_once 'cadastroAlterar.php';}
 							if($paginaSelecionada == "senhaAlterar"){require_once 'senhaAlterar.php';}
-							if($paginaSelecionada == "cadastroExcluir"){require_once 'cadastroExcluir.php';}
 							if($paginaSelecionada == "caixaEntrada"){require_once 'caixaEntrada.php';}
 						?>
 

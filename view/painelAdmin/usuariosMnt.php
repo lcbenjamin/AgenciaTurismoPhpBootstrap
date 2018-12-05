@@ -57,9 +57,9 @@
 			<!-- Perfil -->
 			<td><?php
 				if ($usuario['codPerfil'] == 1){
-					echo "Administrador";
-				}else if($usuario['codPerfil'] == 2){
 					echo "Cliente";
+				}else if($usuario['codPerfil'] == 2){
+					echo "Administrador";
 				} ?>
 			</td>
 			<!-- Status -->

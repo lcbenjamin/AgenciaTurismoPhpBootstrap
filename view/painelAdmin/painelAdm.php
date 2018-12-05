@@ -5,6 +5,7 @@ require_once('../../config.php');
 
 /** Verifiica se o usuário esta logado */
 require_once('../../controller/verificaLogado.php');
+require_once('../../controller/beans/usuarioBean.php');
 verificaLogadoAdministrador();
 
 $usuarioLogado = null;
@@ -53,9 +54,6 @@ if(isset($_SESSION['logado'])){
 				<a class="navbar-brand h1 mb-0 py-0" href="../front/index.php?p=home">
 					<a class="navbar-brand" href="../front/index.php?p=home"><span class="text-primary">Bubu</span>Admin</a>
 				</a>
-				<a class="navbar-brand mb-0 py-0" href="../front/index.php?p=home">
-					<a class="navbar-brand" style="font-size: small; margin-top:6px;" href="../front/index.php?p=home"><span class="text-primary"> / Bubu</span>User</a>
-				</a>
 			</ul>
 			</div>
 			<div class="ml-auto">
@@ -88,6 +86,13 @@ if(isset($_SESSION['logado'])){
 			=====================-->
 			<div class="col-md-3 col-xs-1 p-l-0 p-r-0 in menu-lateral" id="sidebar">
 				<div class="list-group panel">
+					
+					<!-- Foto Usuário-->
+					<a href="#" class="list-group-item collapsed" data-parent="#sidebar">
+						<img class="media-object" src="../imagens/img_usuarios/<?php echo carrega_caminho_imagem($usuarioLogado['codImagem'])['nome'];?>" id="img_usuario_detalhe">
+						<span class="ml-2"><?php echo $usuarioLogado['primeiroNome'];?></span>
+					</a>	
+
 					<!-- Menu OverView-->
 					<a href="./painelAdm.php?adm=overview" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-list"></i> <span class="hidden-sm-down">Overview</span></a>
 					<!-- Menu Usuários-->
