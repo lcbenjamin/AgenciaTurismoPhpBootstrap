@@ -167,10 +167,20 @@
   color: #333;
 }
 
-/* Imagem de exibição do usuário*/
+/* Imagem de exibição do usuário na tela de Admin / Usuario / Consulta / Detalhe*/
 #img_usuario_detalhe {
   max-width:150px;
   max-height:150px;
+  width: auto;
+  height: auto;
+}
+/* Imagem de exibição do usuário na tela de Admin / Usuario / Consulta / Detalhe*/
+#img_usuario_detalhe{
+  max-width:50px;
+  max-height:50px;
+  border-radius: 25px;
+  background: #fff;
+  padding: 1px; 
   width: auto;
   height: auto;
 }

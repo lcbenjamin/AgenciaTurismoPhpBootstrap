@@ -11,25 +11,26 @@
     carrega_estados();
     editar_usuario();
 
-    $id = $_GET['id'];
+    $id = $usuarioLogado['codigoUsuario'];
     $usuario =  carregaUsuarioPorId($id);
 ?>
 
 <hr />
 <div class="bg-gradient-light py-1 pl-1 align-middle" >
-  <h4>Usuários > Atualizar</h4>
+  <h4>Atualiza Cadastro</h4>
 </div>
 <hr />
 <!-- Area de alerta e mensagens de erro -->
 <?php if (!empty($_SESSION['message'])) : ?>
 	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		<?php echo $_SESSION['message']; ?>
+    <?php echo $_SESSION['message']; ?>
+    <?php unset($_SESSION['message']); ?>
 	</div>
 <?php endif; ?>
 
 <!-- Formulario de inclusão -->
-<form action="painelAdm.php?adm=usuariosMntAlterar&id=<?php echo $usuario['codigoUsuario']; ?>&altera=ok" method="post" enctype="multipart/form-data">
+<form action="painelUsr.php?adm=cadastroAlterar&id=<?php echo $usuario['codigoUsuario']; ?>&altera=ok" method="post" enctype="multipart/form-data">
 <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
 
   <!-- Linha 1 do formulario -->
@@ -124,19 +125,6 @@
       <label for="telefone">Telefone</label>
       <input type="text" value="<?php echo $usuario['telefone'];?>" class="form-control" name="usuario[telefone]" onkeydown="javascript: fMasc( this, mTel );" maxlength="20">
     </div>
-     <!-- Perfil -->
-    <div class="form-group col-md-2">
-      <label for="perfil">Perfil </label>
-      <select id="perfil" name="usuario[codPerfil]" class="form-control">
-        <?php if($usuario['codPerfil']==1){ ?>
-          <option value="1" selected >Cliente</option>
-          <option value="2">Administrador</option>
-        <?php } else if($usuario['codPerfil']==2){ ?>
-          <option value="2" selected>Administrador</option>
-          <option value="1" >Cliente</option>
-        <?php } ?>
-      </select>
-    </div>
 
   </div>
 
@@ -144,7 +132,7 @@
    <div class="row"> 
        <!-- Foto do perfil -->
       <div class="col-xs-12 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">  
-      <label for="status">Foto do Perfil </label>
+      <label for="status">Alterar foto do perfil </label>
           <div class="input-group image-preview">
               <input type="text" class="form-control image-preview-filename" disabled="disabled">
               <span class="input-group-btn">

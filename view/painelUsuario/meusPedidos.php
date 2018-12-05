@@ -53,7 +53,8 @@
                 </thead>
                 <tbody>
                     <?php if ($pedidos) : ?>
-	                <?php foreach ($pedidos as $pedido) : ?>  
+                    <?php foreach ($pedidos as $pedido) : ?>  
+                    <?php if ($pedido['codigoUsuario'] == $usuarioLogado['codigoUsuario']) : ?>  
                         <tr>
                             <td class="align-middle"><?php echo retornaNomeSobrenomeUsuario($pedido['codigoUsuario']); ?></td>
                             <td class="align-middle"><?php echo retornaTituloPacote($pedido['codPacote']); ?></td>
@@ -73,6 +74,7 @@
                                 </a>    
                             </td>
                         </tr>
+                    <?php endif; ?>
                     <?php endforeach; ?>
 	                <?php else : ?>
                         <tr>
@@ -85,7 +87,7 @@
     </div>
 </div>
 
-<?php include('modalDelete.php'); ?>
+<?php include('modal.php'); ?>
 
 
 

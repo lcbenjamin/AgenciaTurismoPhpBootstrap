@@ -52,7 +52,7 @@
         <form action="cadastroUsuario.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
             <input type="hidden" class="form-control" name="usuario[codPerfil]" value="1"/>
-            <input type="hidden" class="form-control" name="usuario[status]" value="Pendente"/>
+            <input type="hidden" class="form-control" name="usuario[status]" value="Ativo"/>
 
             <!-- Linha 1 do formulario -->
             <div class="row">
