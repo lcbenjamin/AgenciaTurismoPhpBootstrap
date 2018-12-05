@@ -9,6 +9,7 @@
 
     /** Verifiica se o usuário esta logado */
     require_once('../../controller/verificaLogado.php');
+    verificaLogadoCliente();
 
     $pacotePadrao = null;
     $pacotePersonalizado = null;

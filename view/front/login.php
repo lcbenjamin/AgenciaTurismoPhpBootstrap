@@ -10,7 +10,6 @@
 
     /** Valida se usuário e senha estão corretos */
     validaLogin();
-
 ?>
 
 <!doctype html>

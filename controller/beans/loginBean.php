@@ -30,7 +30,15 @@ function validaLogin(){
                 /** Salva usuario em uma SESSION é encaminha para o index.php */
                 $id = $usuarioConsultado['codigoUsuario'];
                 $_SESSION['logado'] = $usuarioConsultado; 
-                header('Location: index.php');
+                
+                /** Verifica se a pagina foi direcionada por um verificador de logon */
+                if(isset($_SESSION['chamador'])){
+                    $chamador = $_SESSION['chamador'];
+                    header('Location: '. $chamador);    
+                } else {
+                    header('Location: index.php');
+                }
+                
 
             } else {
                 /** Informa caso a senha email não sejam compativeis */

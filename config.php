@@ -25,7 +25,7 @@ if (!defined('BASEURL'))
 if (!defined('DBAPI'))
     define('DBAPI', ABSPATH . 'model/database.php');
 
-/** caminho do arquivo de banco de dados **/
+/** Caminho da raiz do site **/
 if (!defined('SITE_RAIZ'))
     define('SITE_RAIZ', $_SERVER['DOCUMENT_ROOT'].BASEURL);
 

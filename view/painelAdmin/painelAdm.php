@@ -1,3 +1,22 @@
+<?php 
+
+session_start();
+require_once('../../config.php');
+
+/** Verifiica se o usuário esta logado */
+require_once('../../controller/verificaLogado.php');
+verificaLogadoAdministrador();
+
+$usuarioLogado = null;
+
+if(isset($_SESSION['logado'])){
+	
+	$usuarioLogado = $_SESSION['logado'];
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -29,14 +48,38 @@
 	-->
 	<nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark navbar-static-top">
 		<div class="collapse navbar-collapse" id="navbarCabecalho">
-			<ul class="navbar-nav ml-left">
+			<div class="mr-auto">
+			<ul class="navbar-nav">
 				<a class="navbar-brand h1 mb-0 py-0" href="../front/index.php?p=home">
-					<a class="navbar-brand" href="#"><span class="text-primary">Bubu</span>Admin</a>
+					<a class="navbar-brand" href="../front/index.php?p=home"><span class="text-primary">Bubu</span>Admin</a>
+				</a>
+				<a class="navbar-brand mb-0 py-0" href="../front/index.php?p=home">
+					<a class="navbar-brand" style="font-size: small; margin-top:6px;" href="../front/index.php?p=home"><span class="text-primary"> / Bubu</span>User</a>
 				</a>
 			</ul>
+			</div>
+			<div class="ml-auto">
+			<ul class="navbar-nav">
+				<!-- Item de usuário logado -->
+				<li class="nav-item">
+				<?php if(isset($_SESSION['logado'])) : ?>
+					<a class="nav-link text-white" href="#">
+						<small>
+							<b>Bem vindo <?php echo $_SESSION['logado']['primeiroNome'];?> !</b>
+						</small>
+					</a>
+				<?php endif; ?>
+                </li>
+                <!-- Item de logout -->
+                <?php if(isset($_SESSION['logado'])) : ?>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="../../controller/logout.php"><small>Sair</small></a>
+                </li>
+                <?php endif; ?>
+			</ul>
+			</div>
 		</div>
 	</nav>
-
 
 	<div class="container-fluid pl-0">
 		<div class="row">

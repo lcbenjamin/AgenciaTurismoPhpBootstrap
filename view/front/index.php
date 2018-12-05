@@ -3,11 +3,10 @@
 <?php
     require_once '../../config.php';
     require_once DBAPI;
-    $db = open_database();
-
-    session_start();
-
     require_once('../../controller/beans/telaPrincipalBean.php');
+
+    $db = open_database();
+    session_start();
     trataMensagemRodape();
 ?>
 

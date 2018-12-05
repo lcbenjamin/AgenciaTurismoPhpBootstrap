@@ -7,6 +7,7 @@
     require_once('../../controller/beans/cidadeBean.php');
 
     require_once('../../controller/verificaLogado.php');
+    verificaLogadoCliente();
     
     /** Carrega o pacote selecionado */
     if(isset($_GET['id'])){
