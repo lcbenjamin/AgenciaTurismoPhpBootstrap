@@ -131,8 +131,8 @@ if(isset($_SESSION['logado'])){
 						<?php
 							$paginaSelecionada = @$_GET['adm'];
 
-							if($paginaSelecionada == null){require_once 'painelAdm.php';}
-							if($paginaSelecionada == "home"){require_once '../principal/index.php';}
+							if($paginaSelecionada == null){require_once 'overview.php';}
+							if($paginaSelecionada == "home"){require_once '../front/index.php';}
 							if($paginaSelecionada == "overview"){require_once 'overview.php';}
 							if($paginaSelecionada == "usuariosMnt"){require_once 'usuariosMnt.php';}
 							if($paginaSelecionada == "usuariosMntDetalhe"){require_once 'usuariosMntDetalhe.php';}

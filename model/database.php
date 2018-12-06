@@ -234,6 +234,20 @@ function consultaIMGporIdPCT($idPacote) {
   return $found;
 }
 
+function consultaPacotesCadPorEstado(){
 
+  $database = open_database();
+  $database->set_charset("utf8");
+  $found = null;
+  $sql = "SELECT EST.nome AS 'Estado', COUNT(PCT.codEstadoDestino) AS 'Pacote Vendido' FROM EST,PCT WHERE EST.codEstado = PCT.codEstadoDestino GROUP BY EST.nome";
 
+  $result = $database->query($sql);
+      
+  if ($result->num_rows > 0) {
+      $found = $result->fetch_all(MYSQLI_ASSOC);
+  }
+
+  close_database($database);
+  return $found;
+}
 ?>
