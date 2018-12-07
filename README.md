@@ -38,6 +38,7 @@ Bootstrap DataPicker
 Font Awesome 4.7.0  
 Jquery 3.3.1  
 Popper.js  
+Google Chart  
    
 ## Requisitos
 
