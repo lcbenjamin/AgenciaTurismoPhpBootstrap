@@ -1,0 +1,128 @@
+
+ ▄▄▄▄▄▄              ▄▄                 
+ ██▀▀▀▀██            ██                  _____           _                     
+ ██    ██  ██    ██  ██▄███▄   ██    ██ |_   _|   _ _ __(_)___ _ __ ___   ___  
+ ███████   ██    ██  ██▀  ▀██  ██    ██   | || | | | '__| / __| '_ ` _ \ / _ \ 
+ ██    ██  ██    ██  ██    ██  ██    ██   | || |_| | |  | \__ \ | | | | | (_) |
+ ██▄▄▄▄██  ██▄▄▄███  ███▄▄██▀  ██▄▄▄███   |_| \__,_|_|  |_|___/_| |_| |_|\___/ 
+ ▀▀▀▀▀▀▀    ▀▀▀▀ ▀▀  ▀▀ ▀▀▀     ▀▀▀▀ ▀▀ 
+==================================================================================
+
+## Manual de Instalação ##
+
+
+# OBJETIVO
+
+    Esse documento tem como objetivo a instrução da configuração do ambiente necessário
+    para a o desenvolvimento e teste do Sistema de vendas de Pacotes turistico BUBU Turismo.
+
+# FERRAMENTAS NECESSARIAS
+
+    Servidor de aplicação / DB
+
+        Apache 2.4.34,
+        MariaDB 10.1.36,
+        PHP 7.0.32 + SQLite 2.8.17/3.7.17 + multibyte (mbstring) support
+
+    SGBD
+
+        Dbeaver 5.1.3
+
+    IDE
+
+        Visual Studio version 1.29 (VS CODE)
+
+    Controlador de versão
+
+        GIT 2.19
+
+
+# INSTALAÇÃO E CONFIGURAÇÃO DO XAMMP
+
+    Instalar o Xampp conforme link abaixo:
+    https://pt.wikihow.com/Instalar-o-XAMPP-para-Windows
+
+# INSTALAÇÃO DO GIT
+   
+    Instalar o Git conforme link abaixo
+    https://woliveiras.com.br/posts/instalando-o-git-windows/
+    OBS:  Não precisa realizar o passo da configuração de usuário e senha
+
+# BAIXANDO SITE PELO GIT
+
+1. Abra a tela do terminal do seu computador (DOS)
+2. Com o comando "cd" entre na pasta onde esta instalado o Xammp e a pasta htdoc
+   cd c:/xampp/htdocs
+   
+3. Execute o comando no terminal para baixar o repositório do Bubu Turismo
+   git clone https://github.com/lcbenjamin/AgenciaTurismoPhpBootstrap.git
+
+# INSTALANDO O DBEAVER
+
+    Acesse o site:
+    https://dbeaver.io/download/
+
+    Faça o download da versão para Windows
+
+    Realize a instalação padrão
+
+# CONFIGURANDO BANCO DE DADOS
+
+    Com o DBeaver baixado e instalado, execute e realize os seguintes passos:
+
+    CONECTAR AO BANCO DE DADOS:
+   
+        * Selecione o menu "Database" > "New Connection"
+        * Selecione na lista a base MariaDB e clique em Next
+        * Preencha com os dados:
+            Server Host: localhost
+            Port: 3306
+            Database:
+            User Name: root
+            Password:
+        * Clique em Next ...
+        * Clique em Next
+        * Clique em Finish
+
+    CRIAR NOVA DATABASE
+   
+        * Com o DBeaver conectado ao banco de dados, vamos criar uma nova base de dados
+
+        * Clique com o botão direito sobre o item DataBases dentro da nova conexão criada na aba Database Navigator
+        * Selecione "Create New Database"
+        * Preencha com os dados:
+            Database name: AgenciaTurismo
+            Charset: utf8
+            Collation: utf8_general_ci
+        * Clique em OK
+
+    RESTAURANDO BACKUP DO SISTEMA
+
+        * Na pasta htdoc do xammp, ao realizar o comando git clone, ele criou uma pasta chamada AgenciaTurismoPhpBootstrap
+          dentro dela esta o nosso projeto.
+        * Abrir a pasta do projeto pelo explorer do windows e dentro da raiz do projeto tem uma pasta chamada "_instalação"
+        * Procurar o arquivo .sql com a data mais recente, ex: "DumpBase 06 12 2018 as 02 52.sql"
+        * Abrir o arquivo com o bloco de notas e copiar seu conteúdo
+        * No Dbeaver, selecionar o menu "SQL Editor" > "New SQL Editor"
+        * Copiar todo o conteúdo do arquivo .sql que copiamos e colar dentro dessa nova aba de SQL EDITOR que criamos
+        * Selecionar todo o conteúdo e pressionar as teclas do teclado ALT + X
+
+        * Feito isso, todas as tabelas do sistema devem estar disponíveis dentro da nova base de dados AgenciaTurismo
+
+
+# ABRINDO SITE
+
+    Se tudo deu certo o site já esta disponível. Execute ele pela URL abaixo:
+    http://localhost/AgenciaTurismoPhpBootstrap/
+
+    Use o seu usuário e senha para ter acesso ao painel do administrador
+
+
+
+# ACESSANDO O CÓDIGO FONTE
+
+    Por ser código aberto, qualquer programa editor de código fonte tem acesso aos fontes do site, porem, recomendo fortemente
+    o uso do Visual Studio Code por ter uma interface direta com o GIT e poder atualizar e baixar os dados do repositório com
+    facilidade.
+
+    Para mais informações me procurem, mas é bem fácil de configurar
