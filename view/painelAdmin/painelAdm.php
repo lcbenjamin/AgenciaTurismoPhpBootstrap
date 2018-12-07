@@ -89,7 +89,7 @@ if(isset($_SESSION['logado'])){
 					
 					<!-- Foto Usuário-->
 					<a href="#" class="list-group-item collapsed" data-parent="#sidebar">
-						<img class="media-object" src="../imagens/img_usuarios/<?php echo carrega_caminho_imagem($usuarioLogado['codImagem'])['nome'];?>" id="img_usuario_detalhe">
+						<img class="media-object" src="../imagens/img_usuarios/<?php echo carrega_caminho_imagem($usuarioLogado['codImagem'])['nome'];?>" id="img_usuario_profile">
 						<span class="ml-2"><?php echo $usuarioLogado['primeiroNome'];?></span>
 					</a>	
 

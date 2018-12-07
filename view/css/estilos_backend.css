@@ -177,7 +177,7 @@
   height: auto;
 }
 /* Imagem de exibição do usuário na tela de Admin / Usuario / Consulta / Detalhe*/
-#img_usuario_detalhe{
+#img_usuario_profile{
   max-width:50px;
   max-height:50px;
   border-radius: 25px;
