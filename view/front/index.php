@@ -121,32 +121,17 @@
         <div class="carousel-inner ">
             <div class="carousel-item active">
                 <img src="../imagens/carousel/carousel_1.jpg" class="img-fluid d-block mx-auto">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3 class="text-white">Campos do Jordão - SP</h3>
-                    <p class="text-white" >O destino mais romantico do Brasil te espera</p>
-                </div>
             </div>
             
             <div class="carousel-item">
                 <img src="../imagens/carousel/carousel_2.jpg" class="img-fluid d-block mx-auto">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Olinda - PE</h3>
-                    <p>Terra de surpresas e senções!</p>
-                </div>
             </div>
             <div class="carousel-item">
                 <img src="../imagens/carousel/carousel_3.jpg" class="img-fluid d-block mx-auto">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Paris</h3>
-                    <p>Cidade Luz!</p>
-                </div>
+
             </div>
             <div class="carousel-item">
                 <img src="../imagens/carousel/carousel_4.jpg" class="img-fluid d-block mx-auto">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Praia do Pina</h3>
-                    <p>Gente bonita e muita curtição. Tudo em um só lugar</p>
-                </div>
             </div>
         </div>
 
