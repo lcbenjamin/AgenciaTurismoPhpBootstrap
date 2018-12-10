@@ -149,6 +149,7 @@ if(isset($_SESSION['logado'])){
 							if($paginaSelecionada == "pedidosMnt"){require_once 'pedidosMnt.php';}
 							if($paginaSelecionada == "pedidosMntDetalhe"){require_once 'pedidosMntDetalhe.php';}
 							if($paginaSelecionada == "centralMensagens"){require_once 'centralMensagens.php';}
+							if($paginaSelecionada == "centralMensagensDetalhe"){require_once 'centralMensagensDetalhe.php';}
 							
 						?>
 

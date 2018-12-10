@@ -57,7 +57,7 @@
 
         	<!-- Ações -->
 			<td class="actions">
-				<a href="./painelAdm.php?adm=passeiosMntDetalhe&id=<?php echo $passeio['codPasseio']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> </a>
+				<a href="./painelAdm.php?adm=centralMensagensDetalhe&id=<?php echo $mensagem['codMensagem']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> </a>
 				<a href="./painelAdm.php?adm=passeiosMntAlterar&id=<?php echo $passeio['codPasseio']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> </a>
 				<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal-passeio"  onclick="setaDadosModal('<?php echo $passeio['codPasseio']; ?>')">
 					<i class="fa fa-trash"></i> 

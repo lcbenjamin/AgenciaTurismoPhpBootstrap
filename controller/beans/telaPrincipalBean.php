@@ -28,7 +28,8 @@ function carregaDadosPacote(){
 function trataMensagemRodape(){
 
     if(isset($_POST['email'])){
-        $mensagem = $_POST['email'];
+        $mensagem['identificacao'] = $_POST['email']['identificacao'];
+        $mensagem['mensagem'] = nl2br($_POST['email']['mensagem']);
         $mensagem['dataHoraCadastro'] =  date('Y/m/d H:i');
         $mensagem['status'] = "Não Lida";
         
