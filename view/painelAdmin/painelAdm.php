@@ -118,8 +118,8 @@ if(isset($_SESSION['logado'])){
 					<div class="collapse" id="menu5">
 						<a href="./painelAdm.php?adm=pedidosMnt" class="list-group-item" data-parent="#menu5">Consultar / Alterar / Excluir</a>
 					</div>
-					<!-- Menu Caixa de entrada-->
-					<a href="./painelAdm.php?adm=caixaEntrada" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-comments"></i> <span class="hidden-sm-down">Caixa de entrada</span></a>
+					<!-- Menu Central de Mensagens-->
+					<a href="./painelAdm.php?adm=centralMensagens" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-comments"></i> <span class="hidden-sm-down">Central de Mensagens</span></a>
 				</div>
 			</div>
 			<!-- 
@@ -148,7 +148,7 @@ if(isset($_SESSION['logado'])){
 							if($paginaSelecionada == "pacotesInc"){require_once 'pacotesInc.php';}
 							if($paginaSelecionada == "pedidosMnt"){require_once 'pedidosMnt.php';}
 							if($paginaSelecionada == "pedidosMntDetalhe"){require_once 'pedidosMntDetalhe.php';}
-							if($paginaSelecionada == "caixaEntrada"){require_once 'caixaEntrada.php';}
+							if($paginaSelecionada == "centralMensagens"){require_once 'centralMensagens.php';}
 							
 						?>
 

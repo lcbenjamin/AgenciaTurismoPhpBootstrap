@@ -29,6 +29,14 @@ function trataMensagemRodape(){
 
     if(isset($_POST['email'])){
         $mensagem = $_POST['email'];
+        $mensagem['dataHoraCadastro'] =  date('Y/m/d H:i');
+        $mensagem['status'] = "Não Lida";
+        
+        if(isset( $_SESSION['logado'])){
+            $mensagem['codigoUsuario'] = $_SESSION['logado']['codigoUsuario'];
+        } else {
+            $mensagem['codigoUsuario'] = 00;
+        }
         save('MSG',$mensagem);
     }
 }
