@@ -189,6 +189,16 @@
   height: auto;
 }
 
+.thumbnail_alt_pacote{
+  max-width:150px;
+  max-height:150px;
+  border-radius: 6px;
+  background: #fff;
+  width: auto;
+  height: auto;
+  margin: 5px 5px 5px 5px;
+}
+
 
 /*  Exibe senha digitada */
 
