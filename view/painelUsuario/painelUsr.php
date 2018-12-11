@@ -94,8 +94,8 @@ if(isset($_SESSION['logado'])){
 					<a href="./painelUsr.php?adm=cadastroAlterar" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-users"></i> <span class="hidden-sm-down">Atualiza Cadastro</span></a>
 					<!-- Menu Alterar Senha-->
 					<a href="./painelUsr.php?adm=senhaAlterar" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-key"></i> <span class="hidden-sm-down">Alterar Senha</span></a>
-					<!-- Menu Caixa de entrada-->
-					<a href="./painelUsr.php?adm=caixaEntrada" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-comments"></i> <span class="hidden-sm-down">Caixa de entrada</span></a>
+					<!-- Menu Central Mensagens-->
+					<a href="./painelUsr.php?adm=centralMensagens" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-comments"></i> <span class="hidden-sm-down">Central de Mensagens</span></a>
 				</div>
 			</div>
 			<!-- 
@@ -113,7 +113,9 @@ if(isset($_SESSION['logado'])){
 							if($paginaSelecionada == "meusPedidosDetalhe"){require_once 'meusPedidosDetalhe.php';}
 							if($paginaSelecionada == "cadastroAlterar"){require_once 'cadastroAlterar.php';}
 							if($paginaSelecionada == "senhaAlterar"){require_once 'senhaAlterar.php';}
-							if($paginaSelecionada == "caixaEntrada"){require_once 'caixaEntrada.php';}
+							if($paginaSelecionada == "centralMensagens"){require_once 'centralMensagens.php';}
+							if($paginaSelecionada == "centralMensagensDetalhe"){require_once 'centralMensagensDetalhe.php';}
+							if($paginaSelecionada == "centralMensagensResponder"){require_once 'centralMensagensResponder.php';}
 						?>
 
 				</div>

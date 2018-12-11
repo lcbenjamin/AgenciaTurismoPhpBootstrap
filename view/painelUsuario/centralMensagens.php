@@ -45,25 +45,27 @@
 	<tbody>
 	<?php if ($mensagens) : ?>
 	<?php foreach ($mensagens as $mensagem) : ?>
-		<tr>
-			<!-- Codigo da mensagem -->
-			<td><?php echo $mensagem['codMensagem']; ?></td>
-			<!-- Remetente -->
-			<td><?php echo $mensagem['identificacao']; ?></td>
-			<!-- Data Recebimento -->
-			<td><?php echo date('d/m/Y H:m', strtotime($mensagem['dataHoraCadastro'])); ?></td>
-			<!-- Status -->
-			<td><?php echo $mensagem['status']; ?></td>
+		<?php if ($mensagem['identificacao'] == $_SESSION['logado']['email']) : ?>
+			<tr>
+				<!-- Codigo da mensagem -->
+				<td><?php echo $mensagem['codMensagem']; ?></td>
+				<!-- Remetente -->
+				<td><?php echo $mensagem['identificacao']; ?></td>
+				<!-- Data Recebimento -->
+				<td><?php echo date('d/m/Y H:m', strtotime($mensagem['dataHoraCadastro'])); ?></td>
+				<!-- Status -->
+				<td><?php echo $mensagem['status']; ?></td>
 
-        	<!-- Ações -->
-			<td class="actions">
-				<a href="./painelAdm.php?adm=centralMensagensDetalhe&id=<?php echo $mensagem['codMensagem']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> </a>
-				<a href="./painelAdm.php?adm=centralMensagensResponder&id=<?php echo $mensagem['codMensagem']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-reply"></i> </a>
-				<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal-passeio"  onclick="setaDadosModal('<?php echo $passeio['codPasseio']; ?>')">
-					<i class="fa fa-trash"></i> 
-				</a>
-			</td>
-		</tr>
+				<!-- Ações -->
+				<td class="actions">
+					<a href="./painelUsr.php?adm=centralMensagensDetalhe&id=<?php echo $mensagem['codMensagem']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> </a>
+					<a href="./painelUsr.php?adm=centralMensagensResponder&id=<?php echo $mensagem['codMensagem']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-reply"></i> </a>
+					<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal-passeio"  onclick="setaDadosModal('<?php echo $passeio['codPasseio']; ?>')">
+						<i class="fa fa-trash"></i> 
+					</a>
+				</td>
+			</tr>
+		<?php endif; ?>
 	<?php endforeach; ?>
 	<?php else : ?>
 		<tr>
@@ -72,11 +74,3 @@
 	<?php endif; ?>
 	</tbody>
 </table>
-
-<?php include('modalDelete.php'); ?>
-
-<script>
-	function setaDadosModal(valor) {
-		document.getElementById('confirmaExcPasseio').setAttribute('href', './painelAdm.php?adm=passeiosMnt&idExcluir='+ valor);
-	}
-</script>

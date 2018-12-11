@@ -5,9 +5,11 @@
     require_once('../../controller/beans/pacotesBean.php');
     require_once('../../controller/beans/estadoBean.php');
     require_once('../../controller/beans/cidadeBean.php');
+    require_once('../../controller/beans/mensagemBean.php');
 
     require_once('../../controller/verificaLogado.php');
     verificaLogadoCliente();
+    enviaMensagem();
     
     /** Carrega o pacote selecionado */
     if(isset($_GET['id'])){
@@ -346,11 +348,17 @@
         <i class="fa fa-info-circle fa-1x"></i>
         &nbspFicou com duvida sobre esse pacote?<br>&nbsp&nbsp&nbsp&nbsp A gente te ajuda
     </h6>
-    <form>
+    <form action="#" method="post">
+        <input name="mensagem[codigoUsuario]" type="hidden" value="<?php echo $_SESSION['logado']['codigoUsuario']; ?>">
+        <input name="mensagem[identificacao]" type="hidden" value="<?php echo $_SESSION['logado']['email']; ?>">
+        <input name="mensagem[codPacote]" type="hidden" value="<?php echo $pacoteSelecionado['pacote']['codPacote']; ?>">
+        <input name="mensagem[status]" type="hidden" value="Não Lida">
+        <input name="mensagem[dataHoraCadastro]" type="hidden" value="<?php echo date('Y/m/d H:i')?>">
+        
         <div class="form-group col-md-13 mt-3">
             <div class="form-group">
             <label for="comment">Escreva sua mensagem:</label>
-            <textarea class="form-control" rows="5" id="comment" placeholder="Te responderemos o mais breve possível"></textarea>
+            <textarea class="form-control" rows="5" id="comment" placeholder="Te responderemos o mais breve possível" name="mensagem[mensagem]"></textarea>
             </div> 
         </div>
           <!-- Botões -->

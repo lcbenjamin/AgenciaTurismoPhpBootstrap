@@ -24,6 +24,7 @@ function salva_pacote($pacote) {
     }
 }
 
+
 /**
  *  Exclusão de um Pacote
  */
@@ -81,6 +82,7 @@ function validaInclusaoPacote(){
         $pacote['traslado'] =           isset($pacote['traslado']) ? "true" : "false";
         $pacote['aereo'] =              isset($pacote['aereo']) ? "true" : "false";
         $pacote['quantidadeParcelas'] = isset($pacote['quantidadeParcelas']) ? (int) $pacote['quantidadeParcelas'] : (int) "0"; 
+        $pacote['descricao'] =          nl2br($_POST['pacote']['descricao']);
 
         /*******************************
          *   Valida Basicos do Pacote  *

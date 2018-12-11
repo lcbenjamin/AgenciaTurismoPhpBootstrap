@@ -36,8 +36,10 @@ function trataMensagemRodape(){
         if(isset( $_SESSION['logado'])){
             $mensagem['codigoUsuario'] = $_SESSION['logado']['codigoUsuario'];
         } else {
-            $mensagem['codigoUsuario'] = 00;
+            $mensagem['codigoUsuario'] = "0";
         }
         save('MSG',$mensagem);
+
+        echo "<script>alert('Mensagem enviada com sucesso!');</script>";
     }
 }
