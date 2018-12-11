@@ -202,8 +202,8 @@ function remove( $table = null, $colunaChave = null, $id = null ) {
         $_SESSION['message'] = "Registro Removido com Sucesso.";
         $_SESSION['type'] = 'success';
       } else {
-        $_SESSION['message'] = 'Erro ao remover registro na tabela . Erro na tabela ' . $table ." { ". $database->error ." }"; 
-        $_SESSION['type'] = 'danger';
+          $_SESSION['message'] = 'Erro ao remover registro na tabela . Erro na tabela ' . $table ." { ". $database->error ." }"; 
+          $_SESSION['type'] = 'danger';
       }
     }
   close_database($database);

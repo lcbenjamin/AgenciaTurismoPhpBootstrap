@@ -54,8 +54,8 @@
             <!-- Conteudo -->
             <tbody>
                 <tr>		
-                    <td class="col-sm-4"><b>Código do Pacote</b></td>
-                    <td><?php echo $pacote['codPacote']; ?></td>
+                    <td class="col-sm-4" width="150px"><b>Código do Pacote</b></td>
+                    <td width="300px"><?php echo $pacote['codPacote']; ?></td>
                 </tr>
                 <tr>		
                     <td><b>Titulo</b></td>
