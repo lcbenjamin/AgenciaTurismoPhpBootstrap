@@ -96,9 +96,6 @@
 
 									<!-- Ações -->
 									<td class="actions text-center align-middle" >
-										<a href="#" class="btn btn-sm btn-success">
-											<i class="fa fa-pencil"></i>
-										</a>
 										<a href="index.php?p=carrinhoDetalhe&id=<?php echo $pedido['codPacote']; ?>" class="btn btn-sm btn-warning">  
 											<i class="fa fa-eye"></i> 
 										</a>

@@ -43,12 +43,12 @@
     </div>
 
     <div class="form-group col-md-3">
-      <label for="descricao">Descrição *</label>
+      <label for="descricao">Descrição </label>
       <input type="text" class="form-control" name="passeio[descricao]">
     </div>
 
     <div class="form-group col-md-3">
-      <label for="descResumida">Descrição Resumida *</label>
+      <label for="descResumida">Descrição Resumida </label>
       <input type="text" class="form-control" name="passeio[descResumida]">
     </div>
 
